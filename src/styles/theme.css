@@ -1,0 +1,192 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Brand Colors */
+  --baobab-earth: #4A3728;
+  --warm-sand: #E6D8C9;
+  --growth-green: #6F8A6D;
+  --resilience-clay: #C46A3A;
+  --clarity-light: #F7F4EF;
+  
+  /* Typography */
+  --font-headline: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  --font-size: 16px;
+  --background: var(--clarity-light);
+  --foreground: var(--baobab-earth);
+  --card: #ffffff;
+  --card-foreground: var(--baobab-earth);
+  --popover: #ffffff;
+  --popover-foreground: var(--baobab-earth);
+  --primary: var(--baobab-earth);
+  --primary-foreground: #ffffff;
+  --secondary: var(--warm-sand);
+  --secondary-foreground: var(--baobab-earth);
+  --muted: var(--warm-sand);
+  --muted-foreground: #6B5D4F;
+  --accent: var(--growth-green);
+  --accent-foreground: #ffffff;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(74, 55, 40, 0.15);
+  --input: transparent;
+  --input-background: #ffffff;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: var(--baobab-earth);
+  --chart-1: var(--resilience-clay);
+  --chart-2: var(--growth-green);
+  --chart-3: var(--baobab-earth);
+  --chart-4: var(--warm-sand);
+  --chart-5: #8B7355;
+  --radius: 0.625rem;
+  --sidebar: var(--clarity-light);
+  --sidebar-foreground: var(--baobab-earth);
+  --sidebar-primary: var(--baobab-earth);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--warm-sand);
+  --sidebar-accent-foreground: var(--baobab-earth);
+  --sidebar-border: rgba(74, 55, 40, 0.15);
+  --sidebar-ring: var(--baobab-earth);
+}
+
+.dark {
+  --background: var(--baobab-earth);
+  --foreground: var(--clarity-light);
+  --card: #5A4738;
+  --card-foreground: var(--clarity-light);
+  --popover: #5A4738;
+  --popover-foreground: var(--clarity-light);
+  --primary: var(--clarity-light);
+  --primary-foreground: var(--baobab-earth);
+  --secondary: #5A4738;
+  --secondary-foreground: var(--clarity-light);
+  --muted: #5A4738;
+  --muted-foreground: var(--warm-sand);
+  --accent: var(--growth-green);
+  --accent-foreground: var(--clarity-light);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: rgba(230, 216, 201, 0.15);
+  --input: #5A4738;
+  --ring: var(--warm-sand);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: var(--resilience-clay);
+  --chart-2: var(--growth-green);
+  --chart-3: var(--warm-sand);
+  --chart-4: #8B7355;
+  --chart-5: var(--clarity-light);
+  --sidebar: #5A4738;
+  --sidebar-foreground: var(--clarity-light);
+  --sidebar-primary: var(--growth-green);
+  --sidebar-primary-foreground: var(--clarity-light);
+  --sidebar-accent: #5A4738;
+  --sidebar-accent-foreground: var(--clarity-light);
+  --sidebar-border: rgba(230, 216, 201, 0.15);
+  --sidebar-ring: var(--warm-sand);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /**
+  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
+  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
+  */
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}
