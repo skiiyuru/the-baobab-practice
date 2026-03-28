@@ -1,4 +1,4 @@
-import logo from "../../assets/logo_full.png";
+import logo from "../../assets/logo_symbol.png";
 
 export function Footer() {
   return (
@@ -28,7 +28,7 @@ export function Footer() {
                     const element = document.getElementById("about");
                     if (element) element.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="hover:text-primary-foreground transition-colors"
+                  className="hover:text-primary-foreground hover:cursor-pointer transition-colors"
                 >
                   About Us
                 </button>
@@ -39,7 +39,7 @@ export function Footer() {
                     const element = document.getElementById("services");
                     if (element) element.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="hover:text-primary-foreground transition-colors"
+                  className="hover:text-primary-foreground hover:cursor-pointer transition-colors"
                 >
                   Services
                 </button>
@@ -50,7 +50,7 @@ export function Footer() {
                     const element = document.getElementById("founder");
                     if (element) element.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="hover:text-primary-foreground transition-colors"
+                  className="hover:text-primary-foreground hover:cursor-pointer transition-colors"
                 >
                   Founder
                 </button>
@@ -61,7 +61,7 @@ export function Footer() {
                     const element = document.getElementById("contact");
                     if (element) element.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="hover:text-primary-foreground transition-colors"
+                  className="hover:text-primary-foreground hover:cursor-pointer transition-colors"
                 >
                   Contact
                 </button>

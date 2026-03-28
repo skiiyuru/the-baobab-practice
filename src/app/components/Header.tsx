@@ -59,7 +59,7 @@ export function Header() {
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className="font-medium capitalize transition-colors"
+                className="font-medium capitalize transition-colors hover:cursor-pointer"
                 style={{
                   color: scrolled ? 'var(--foreground)' : 'rgba(255,255,255,0.9)',
                   transitionTimingFunction: 'var(--ease-out-quart)',
@@ -84,9 +84,9 @@ export function Header() {
             aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
-              <X className="size-6" style={{ color: scrolled ? 'var(--foreground)' : 'white' }} />
+              <X className="size-6 hover:cursor-pointer" style={{ color: scrolled ? 'var(--foreground)' : 'white' }} />
             ) : (
-              <Menu className="size-6" style={{ color: scrolled ? 'var(--foreground)' : 'white' }} />
+              <Menu className="size-6 hover:cursor-pointer" style={{ color: scrolled ? 'var(--foreground)' : 'white' }} />
             )}
           </button>
         </div>
@@ -107,7 +107,10 @@ export function Header() {
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className="text-left font-medium text-foreground py-2 capitalize"
+                  className="text-left font-medium text-background py-2 capitalize hover:cursor-pointer"
+                  style={{
+                    color: scrolled ? 'var(--foreground)' : 'rgba(255,255,255,0.9)',
+                  }}
                 >
                   {section}
                 </button>
