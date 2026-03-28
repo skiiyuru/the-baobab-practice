@@ -10,7 +10,7 @@ export function Footer() {
               src={logo}
               alt="The Baobab Practice"
               className="h-32 w-auto mb-4"
-              style={{ filter: "brightness(0) invert(1)" }}
+              // style={{ filter: "brightness(0) invert(1)" }}
             />
             <p className="text-secondary">
               Human-led transformation rooted in trust, clarity, and resilience.
@@ -18,10 +18,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4
-              className="font-semibold mb-4"
-              style={{ fontFamily: "var(--font-headline)" }}
-            >
+            <h4 className="font-semibold mb-4 font-[family-name:var(--font-headline)]">
               Quick Links
             </h4>
             <ul className="space-y-2 text-secondary">
@@ -50,12 +47,12 @@ export function Footer() {
               <li>
                 <button
                   onClick={() => {
-                    const element = document.getElementById("team");
+                    const element = document.getElementById("founder");
                     if (element) element.scrollIntoView({ behavior: "smooth" });
                   }}
                   className="hover:text-primary-foreground transition-colors"
                 >
-                  Our Team
+                  Founder
                 </button>
               </li>
               <li>
@@ -73,10 +70,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4
-              className="font-semibold mb-4"
-              style={{ fontFamily: "var(--font-headline)" }}
-            >
+            <h4 className="font-semibold mb-4 font-[family-name:var(--font-headline)]">
               Contact Info
             </h4>
             <ul className="space-y-2 text-secondary">
@@ -88,13 +82,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div
-          className="pt-8 text-center text-secondary"
-          style={{
-            borderTopWidth: "1px",
-            borderColor: "rgba(230, 216, 201, 0.2)",
-          }}
-        >
+        <div className="pt-8 text-center text-secondary border-t border-white/20">
           <p>
             &copy; {new Date().getFullYear()} The Baobab Practice. All rights
             reserved.
@@ -104,4 +92,3 @@ export function Footer() {
     </footer>
   );
 }
-

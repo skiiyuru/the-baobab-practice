@@ -1,38 +1,83 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Brand Colors */
-  --baobab-earth: #4A3728;
-  --warm-sand: #E6D8C9;
-  --growth-green: #6F8A6D;
-  --resilience-clay: #C46A3A;
-  --clarity-light: #F7F4EF;
-  
+  /* Brand Colors — oklch for perceptual uniformity */
+  --baobab-earth: oklch(0.35 0.05 55);        /* #4A3728 equivalent */
+  --warm-sand: oklch(0.88 0.03 70);            /* #E6D8C9 equivalent */
+  --growth-green: oklch(0.58 0.08 145);        /* #6F8A6D equivalent */
+  --resilience-clay: oklch(0.58 0.14 45);      /* #C46A3A equivalent */
+  --clarity-light: oklch(0.97 0.01 80);        /* #F7F4EF equivalent */
+
+  /* Tinted neutrals (warm-shifted, never pure gray) */
+  --neutral-700: oklch(0.42 0.03 55);          /* ~#6B5D4F — body text */
+  --neutral-500: oklch(0.55 0.02 55);          /* lighter body / captions */
+  --neutral-300: oklch(0.75 0.02 60);          /* borders, subtle */
+  --neutral-100: oklch(0.92 0.01 70);          /* subtle backgrounds */
+
+  /* Semantic text tokens */
+  --text-primary: var(--baobab-earth);
+  --text-secondary: var(--neutral-700);
+  --text-tertiary: var(--neutral-500);
+  --text-accent-green: var(--growth-green);
+  --text-accent-clay: var(--resilience-clay);
+  --text-on-dark: var(--clarity-light);
+  --text-on-dark-muted: var(--warm-sand);
+
+  /* Semantic surface tokens */
+  --surface-warm: var(--clarity-light);
+  --surface-white: #ffffff;
+  --surface-sand: var(--warm-sand);
+  --surface-earth: var(--baobab-earth);
+  --surface-green: var(--growth-green);
+
+  /* Brand-derived phase colors (replacing Tailwind defaults) */
+  --phase-root-bg: oklch(0.92 0.04 70);       /* warm sand tint */
+  --phase-root-text: oklch(0.45 0.06 55);      /* earth variant */
+  --phase-root-border: oklch(0.85 0.05 65);
+  --phase-trunk-bg: oklch(0.92 0.04 145);      /* green tint */
+  --phase-trunk-text: oklch(0.38 0.08 145);    /* deep green */
+  --phase-trunk-border: oklch(0.82 0.06 145);
+  --phase-branch-bg: oklch(0.92 0.05 145);     /* green tint, slightly different */
+  --phase-branch-text: oklch(0.40 0.08 145);
+  --phase-branch-border: oklch(0.82 0.07 145);
+  --phase-canopy-bg: oklch(0.92 0.06 45);      /* clay tint */
+  --phase-canopy-text: oklch(0.42 0.10 45);    /* deep clay */
+  --phase-canopy-border: oklch(0.82 0.08 45);
+
   /* Typography */
-  --font-headline: 'Playfair Display', serif;
-  --font-body: 'Inter', sans-serif;
-  
+  --font-headline: 'Source Serif 4', serif;
+  --font-body: 'DM Sans', sans-serif;
   --font-size: 16px;
+
+  /* Animation */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --duration-entrance: 600ms;
+
+  /* Shadcn semantic tokens (mapped to brand) */
   --background: var(--clarity-light);
   --foreground: var(--baobab-earth);
-  --card: #ffffff;
+  --card: var(--surface-white);
   --card-foreground: var(--baobab-earth);
-  --popover: #ffffff;
+  --popover: var(--surface-white);
   --popover-foreground: var(--baobab-earth);
   --primary: var(--baobab-earth);
-  --primary-foreground: #ffffff;
+  --primary-foreground: var(--surface-white);
   --secondary: var(--warm-sand);
   --secondary-foreground: var(--baobab-earth);
   --muted: var(--warm-sand);
-  --muted-foreground: #6B5D4F;
+  --muted-foreground: var(--neutral-700);
   --accent: var(--growth-green);
-  --accent-foreground: #ffffff;
-  --destructive: #d4183d;
-  --destructive-foreground: #ffffff;
-  --border: rgba(74, 55, 40, 0.15);
+  --accent-foreground: var(--surface-white);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: var(--surface-white);
+  --border: oklch(0.85 0.02 55 / 0.4);
   --input: transparent;
-  --input-background: #ffffff;
-  --switch-background: #cbced4;
+  --input-background: var(--surface-white);
+  --switch-background: oklch(0.82 0.01 55);
   --font-weight-medium: 500;
   --font-weight-normal: 400;
   --ring: var(--baobab-earth);
@@ -40,52 +85,52 @@
   --chart-2: var(--growth-green);
   --chart-3: var(--baobab-earth);
   --chart-4: var(--warm-sand);
-  --chart-5: #8B7355;
+  --chart-5: oklch(0.50 0.04 55);
   --radius: 0.625rem;
   --sidebar: var(--clarity-light);
   --sidebar-foreground: var(--baobab-earth);
   --sidebar-primary: var(--baobab-earth);
-  --sidebar-primary-foreground: #ffffff;
+  --sidebar-primary-foreground: var(--surface-white);
   --sidebar-accent: var(--warm-sand);
   --sidebar-accent-foreground: var(--baobab-earth);
-  --sidebar-border: rgba(74, 55, 40, 0.15);
+  --sidebar-border: oklch(0.85 0.02 55 / 0.4);
   --sidebar-ring: var(--baobab-earth);
 }
 
 .dark {
   --background: var(--baobab-earth);
   --foreground: var(--clarity-light);
-  --card: #5A4738;
+  --card: oklch(0.30 0.04 55);
   --card-foreground: var(--clarity-light);
-  --popover: #5A4738;
+  --popover: oklch(0.30 0.04 55);
   --popover-foreground: var(--clarity-light);
   --primary: var(--clarity-light);
   --primary-foreground: var(--baobab-earth);
-  --secondary: #5A4738;
+  --secondary: oklch(0.30 0.04 55);
   --secondary-foreground: var(--clarity-light);
-  --muted: #5A4738;
+  --muted: oklch(0.30 0.04 55);
   --muted-foreground: var(--warm-sand);
   --accent: var(--growth-green);
   --accent-foreground: var(--clarity-light);
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: rgba(230, 216, 201, 0.15);
-  --input: #5A4738;
+  --border: oklch(0.88 0.02 55 / 0.15);
+  --input: oklch(0.30 0.04 55);
   --ring: var(--warm-sand);
   --font-weight-medium: 500;
   --font-weight-normal: 400;
   --chart-1: var(--resilience-clay);
   --chart-2: var(--growth-green);
   --chart-3: var(--warm-sand);
-  --chart-4: #8B7355;
+  --chart-4: oklch(0.50 0.04 55);
   --chart-5: var(--clarity-light);
-  --sidebar: #5A4738;
+  --sidebar: oklch(0.30 0.04 55);
   --sidebar-foreground: var(--clarity-light);
   --sidebar-primary: var(--growth-green);
   --sidebar-primary-foreground: var(--clarity-light);
-  --sidebar-accent: #5A4738;
+  --sidebar-accent: oklch(0.30 0.04 55);
   --sidebar-accent-foreground: var(--clarity-light);
-  --sidebar-border: rgba(230, 216, 201, 0.15);
+  --sidebar-border: oklch(0.88 0.02 55 / 0.15);
   --sidebar-ring: var(--warm-sand);
 }
 
@@ -128,6 +173,31 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Brand color utilities for Tailwind */
+  --color-brand-earth: var(--baobab-earth);
+  --color-brand-sand: var(--warm-sand);
+  --color-brand-green: var(--growth-green);
+  --color-brand-clay: var(--resilience-clay);
+  --color-brand-light: var(--clarity-light);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-100: var(--neutral-100);
+
+  /* Phase color utilities */
+  --color-phase-root-bg: var(--phase-root-bg);
+  --color-phase-root-text: var(--phase-root-text);
+  --color-phase-root-border: var(--phase-root-border);
+  --color-phase-trunk-bg: var(--phase-trunk-bg);
+  --color-phase-trunk-text: var(--phase-trunk-text);
+  --color-phase-trunk-border: var(--phase-trunk-border);
+  --color-phase-branch-bg: var(--phase-branch-bg);
+  --color-phase-branch-text: var(--phase-branch-text);
+  --color-phase-branch-border: var(--phase-branch-border);
+  --color-phase-canopy-bg: var(--phase-canopy-bg);
+  --color-phase-canopy-text: var(--phase-canopy-text);
+  --color-phase-canopy-border: var(--phase-canopy-border);
 }
 
 @layer base {
@@ -137,33 +207,34 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
   }
-
-  /**
-  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
-  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
-  */
 
   html {
     font-size: var(--font-size);
   }
 
   h1 {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: var(--font-headline);
+    font-size: clamp(3rem, 5vw + 1rem, 5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
   }
 
   h2 {
-    font-size: var(--text-xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: var(--font-headline);
+    font-size: clamp(2rem, 3vw + 0.5rem, 3.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
   }
 
   h3 {
-    font-size: var(--text-lg);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-family: var(--font-headline);
+    font-size: clamp(1.25rem, 2vw + 0.25rem, 1.75rem);
+    font-weight: 600;
+    line-height: 1.3;
   }
 
   h4 {
@@ -188,5 +259,17 @@
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
