@@ -32,7 +32,7 @@ export function Header() {
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all"
       style={{
-        backgroundColor: scrolled ? 'var(--clarity-light)' : 'transparent',
+        backgroundColor: scrolled || mobileMenuOpen ? 'var(--clarity-light)' : 'transparent',
         borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
         transitionTimingFunction: 'var(--ease-out-quart)',
         transitionDuration: 'var(--duration-normal)',
@@ -84,9 +84,9 @@ export function Header() {
             aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
-              <X className="size-6 hover:cursor-pointer" style={{ color: scrolled ? 'var(--foreground)' : 'white' }} />
+              <X className="size-6 hover:cursor-pointer" style={{ color: mobileMenuOpen ? 'var(--foreground)' : 'white' }} />
             ) : (
-              <Menu className="size-6 hover:cursor-pointer" style={{ color: scrolled ? 'var(--foreground)' : 'white' }} />
+              <Menu className="size-6 hover:cursor-pointer" style={{ color: mobileMenuOpen || scrolled ? 'var(--foreground)' : 'white' }} />
             )}
           </button>
         </div>
@@ -109,7 +109,7 @@ export function Header() {
                   onClick={() => scrollToSection(section)}
                   className="text-left font-medium text-background py-2 capitalize hover:cursor-pointer"
                   style={{
-                    color: scrolled ? 'var(--foreground)' : 'rgba(255,255,255,0.9)',
+                    color: mobileMenuOpen ? 'var(--foreground)' : 'rgba(255,255,255,0.9)',
                   }}
                 >
                   {section}
