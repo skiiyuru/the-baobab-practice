@@ -36,7 +36,7 @@ export function Hero() {
             </p>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={500} duration={800}>
-            <p className="text-base lg:text-lg leading-relaxed text-white/80 max-w-lg">
+            <p className="text-base lg:text-lg leading-relaxed text-white max-w-lg" style={{ fontWeight: 500 }}>
               We partner with leaders and teams to navigate complex change through human-led, practice-based coaching.
             </p>
           </AnimateIn>
