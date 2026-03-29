@@ -1,3 +1,4 @@
+import { HELLO_EMAIL, LOCATION, PHONE, POSTAL_ADDRESS } from "@/constants";
 import logo from "../../assets/logo_symbol.png";
 
 export function Footer() {
@@ -74,10 +75,10 @@ export function Footer() {
               Contact Info
             </h4>
             <ul className="space-y-2 text-secondary">
-              <li>+254 722 289642</li>
-              <li>hello@baobabpractice.com</li>
-              <li>24808 00502</li>
-              <li>Nairobi, Kenya</li>
+              <li>{PHONE}</li>
+              <li>{HELLO_EMAIL}</li>
+              <li>{POSTAL_ADDRESS}</li>
+              <li>{LOCATION}</li>
             </ul>
           </div>
         </div>

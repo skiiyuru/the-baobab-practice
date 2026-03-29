@@ -6,6 +6,7 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { toast } from 'sonner';
+import { HELLO_EMAIL, PHONE } from '@/constants';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -48,11 +49,11 @@ export function Contact() {
           <div className="lg:col-span-4 space-y-6">
             <div className="flex items-center gap-4">
               <Phone className="size-5 text-brand-green flex-shrink-0" />
-              <span className="text-muted-foreground" style={{ fontWeight: 300 }}>+254 722 289642</span>
+              <span className="text-muted-foreground" style={{ fontWeight: 300 }}>{PHONE}</span>
             </div>
             <div className="flex items-center gap-4">
               <Mail className="size-5 text-brand-clay flex-shrink-0" />
-              <span className="text-muted-foreground" style={{ fontWeight: 300 }}>hello@baobabpractice.com</span>
+              <span className="text-muted-foreground" style={{ fontWeight: 300 }}>{HELLO_EMAIL}</span>
             </div>
             <div className="flex items-center gap-4">
               <MapPin className="size-5 text-foreground flex-shrink-0" />
