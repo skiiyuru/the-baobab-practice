@@ -31,12 +31,12 @@ export function Hero() {
             </h1>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={300} duration={800}>
-            <p className="text-xl lg:text-2xl font-light leading-relaxed text-white/80 font-[family-name:var(--font-headline)]" style={{ fontWeight: 200 }}>
+            <p className="text-xl lg:text-3xl leading-relaxed text-white font-[family-name:var(--font-headline)]" style={{ fontWeight: 500 }}>
               A world where people and organizations thrive through change.
             </p>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={500} duration={800}>
-            <p className="text-base lg:text-lg leading-relaxed text-white/70 max-w-lg">
+            <p className="text-base lg:text-lg leading-relaxed text-white/80 max-w-lg">
               We partner with leaders and teams to navigate complex change through human-led, practice-based coaching.
             </p>
           </AnimateIn>

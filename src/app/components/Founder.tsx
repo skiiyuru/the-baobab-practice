@@ -1,4 +1,5 @@
-import founderImage from "../../assets/founder.png";
+// import founderImage from "../../assets/founder.png";
+import founderImage from "../../assets/founder_2.png";
 import { AnimateIn } from './AnimateIn';
 
 export function Founder() {
