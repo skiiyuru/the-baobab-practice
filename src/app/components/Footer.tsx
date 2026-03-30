@@ -1,5 +1,5 @@
 import { HELLO_EMAIL, LOCATION, PHONE, POSTAL_ADDRESS } from "@/constants";
-import logo from "../../assets/logo_symbol.png";
+import logo from "../../assets/logo_full.png";
 
 export function Footer() {
   return (

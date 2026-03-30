@@ -1,7 +1,7 @@
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
-import logo from '../../assets/logo_full.png';
+import logo from '../../assets/logo_symbol.png';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -51,6 +51,9 @@ export function Header() {
                 transitionDuration: 'var(--duration-normal)',
               }}
             />
+            <span className="hidden md:block ml-4 text-xl font-[family-name:var(--font-headline)] font-semibold"
+              style={{color: scrolled ? 'var(--foreground)' : 'rgba(255,255,255,0.9)',}}
+            >The Baobab Practice</span>
           </button>
 
           {/* Desktop Navigation */}
@@ -65,7 +68,7 @@ export function Header() {
                   transitionTimingFunction: 'var(--ease-out-quart)',
                   transitionDuration: 'var(--duration-fast)',
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--growth-green)'}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--warm-sand)'}
                 onMouseLeave={(e) => e.currentTarget.style.color = scrolled ? 'var(--foreground)' : 'rgba(255,255,255,0.9)'}
               >
                 {section}

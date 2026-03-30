@@ -1,6 +1,7 @@
-import { Droplet, Leaf, Flower2, Network } from 'lucide-react';
+import { Droplet, Leaf, Flower2, Network, Lightbulb } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { AnimateIn } from './AnimateIn';
+import logo from '../../assets/og-image.png';
 
 const fourfoldWisdom = [
   {
@@ -98,23 +99,27 @@ export function About() {
       {/* The Fourfold Wisdom — asymmetric layout */}
       <div className="py-28 lg:py-36 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="mb-16 text-foreground">
+          {/* <h3 className="mb-16 text-foreground">
             The Fourfold Wisdom
-          </h3>
+          </h3> */}
 
           <div className="grid lg:grid-cols-5 gap-8">
             {/* Featured item — large */}
             <div className="lg:col-span-2 bg-brand-light rounded-2xl p-10 lg:p-12 flex flex-col justify-center">
-              <Network className="size-12 text-foreground mb-8" />
-              <h4 className="text-2xl font-bold mb-2 text-foreground font-[family-name:var(--font-headline)]">{fourfoldWisdom[0].title}</h4>
-              <p className="text-sm font-medium text-brand-green mb-6">{fourfoldWisdom[0].subtitle}</p>
-              <p className="text-base leading-relaxed text-muted-foreground">{fourfoldWisdom[0].description}</p>
+              <h4 className="text-2xl font-bold mb-2 text-foreground font-[family-name:var(--font-headline)]">The Fourfold Wisdom</h4>
+               <img
+                src={logo}
+                alt="The Baobab Practice"
+                className="size-50 md:size-75"
+               />
+              {/* <p className="text-sm font-medium text-brand-green mb-6">{fourfoldWisdom[0].subtitle}</p> */}
+              {/* <p className="text-base leading-relaxed text-muted-foreground">{fourfoldWisdom[0].description}</p> */}
             </div>
 
             {/* Three smaller items */}
             <div className="lg:col-span-3 space-y-6">
-              {fourfoldWisdom.slice(1).map((wisdom, index) => {
-                const Icon = wisdom.icon;
+              {fourfoldWisdom.map((wisdom, index) => {
+                const Icon = wisdom.icon
                 return (
                   <div key={index} className="flex items-start gap-6 p-6 rounded-xl border border-border bg-white">
                     <Icon className={`size-8 flex-shrink-0 mt-1 ${wisdom.iconColor}`} />
