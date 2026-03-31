@@ -2,6 +2,7 @@ import { Droplet, Leaf, Flower2, Network, Lightbulb } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { AnimateIn } from './AnimateIn';
 import logo from '../../assets/og-image.png';
+import baobab from '../../assets/bb1.png';
 
 const fourfoldWisdom = [
   {
@@ -58,7 +59,7 @@ export function About() {
             <div className="lg:col-span-3 order-2 lg:order-1">
               <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-xl">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1619203921846-ba381b842a89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYW9iYWIlMjB0cmVlJTIwc2lsaG91ZXR0ZSUyMHN1bnNldCUyMEFmcmljYXxlbnwxfHx8fDE3NzQzNTY4NTF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src={baobab}
                   alt="Ancient Baobab Tree Silhouette"
                   className="w-full h-full object-cover"
                 />

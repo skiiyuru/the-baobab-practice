@@ -1,7 +1,7 @@
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
-import logo from '../../assets/logo_symbol.png';
+import logo from '../../assets/logo_full.png';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -44,14 +44,14 @@ export function Header() {
             <img
               src={logo}
               alt="The Baobab Practice"
-              className="h-20 w-auto transition-all"
+              className="h-10 w-auto transition-all md:h-20"
               style={{
                 // filter: scrolled ? 'none' : 'brightness(0) invert(1)',
                 transitionTimingFunction: 'var(--ease-out-quart)',
                 transitionDuration: 'var(--duration-normal)',
               }}
             />
-            <span className="hidden md:block ml-4 text-xl font-[family-name:var(--font-headline)] font-semibold"
+            <span className="ml-2 md:ml-4 text-lg md:text-xl font-[family-name:var(--font-headline)] font-semibold"
               style={{color: scrolled ? 'var(--foreground)' : 'rgba(255,255,255,0.9)',}}
             >The Baobab Practice</span>
           </button>

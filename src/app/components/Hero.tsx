@@ -26,7 +26,7 @@ export function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40 w-full">
         <div className="max-w-2xl space-y-8">
           <AnimateIn variant="fade-up" delay={100} duration={800}>
-            <h1 className="text-white">
+            <h1 className='text-xl lg:text-3xl text-white'>  
               Human.Led Change
             </h1>
           </AnimateIn>
