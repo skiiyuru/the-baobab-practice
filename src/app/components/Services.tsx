@@ -148,7 +148,7 @@ export function Services() {
   return (
     <section id="services" className="bg-brand-light">
       {/* Our Promise — leading hook */}
-      <div className="py-20 lg:py-28">
+      <div className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="rounded-2xl p-8 lg:p-12 bg-brand-green">
             <p className="text-xl lg:text-2xl leading-relaxed text-white font-[family-name:var(--font-headline)]">
@@ -197,8 +197,10 @@ export function Services() {
               />
             </div>
             <div className="p-8 lg:p-12">
-              <p className="text-xl lg:text-2xl font-semibold leading-snug text-foreground font-[family-name:var(--font-headline)]">
-                Every transformation journey is unique. We walk alongside you every step of the way.
+              <h4 className="text-2xl font-bold mb-2 text-foreground font-[family-name:var(--font-headline)]">Your Journey. Our Commitment.</h4>
+
+              <p className="text-lg lg:text-xl font-medium leading-relaxed text-foreground">
+                We walk alongside you, every step. Your organization knows its own terrain. We bring the tools, presence, and partnership to navigate it with clarity and confidence. No blueprints. No presets. Your path, your pace. Your change. Made to last.
               </p>
             </div>
           </div>
@@ -266,7 +268,7 @@ export function Services() {
       <div className="py-16 lg:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-xl lg:text-2xl font-semibold mb-8 text-foreground font-[family-name:var(--font-headline)]">
-            Ready to plant your Baobab?
+            Ready for Human.Led Change?
           </p>
           <Button
             size="lg"

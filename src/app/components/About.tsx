@@ -73,7 +73,7 @@ export function About() {
               {/* Pull quote — statement typography */}
               <AnimateIn variant="fade-left" delay={200}>
                 <blockquote className="border-l-4 border-brand-clay pl-6 py-2">
-                  <p className="text-2xl lg:text-3xl font-[family-name:var(--font-headline)] leading-snug text-foreground" style={{ fontWeight: 700 }}>
+                  <p className="text-xl lg:text-2xl font-[family-name:var(--font-headline)] leading-snug text-foreground" style={{ fontWeight: 700 }}>
                     This is not a tree that fights against its environment. It dances with it.
                   </p>
                 </blockquote>
@@ -90,7 +90,7 @@ export function About() {
             Today's organizations face their own droughts, fires, and storms. Most respond like trees that do not know they are Baobabs — bracing against the wind, clinging to every leaf, exhausting themselves fighting conditions instead of adapting to them.
           </p>
           <AnimateIn>
-            <p className="text-2xl lg:text-3xl font-[family-name:var(--font-headline)] leading-snug text-foreground" style={{ fontWeight: 600 }}>
+            <p className="text-xl lg:text-2xl font-[family-name:var(--font-headline)] leading-snug text-foreground" style={{ fontWeight: 700 }}>
               What if organizations could learn from the Baobab?
             </p>
           </AnimateIn>
@@ -98,12 +98,8 @@ export function About() {
       </div>
 
       {/* The Fourfold Wisdom — asymmetric layout */}
-      <div className="py-28 lg:py-36 bg-white">
+      <div className="py-28 lg:py-36 bg-white space-y-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* <h3 className="mb-16 text-foreground">
-            The Fourfold Wisdom
-          </h3> */}
-
           <div className="grid lg:grid-cols-5 gap-8">
             {/* Featured item — large */}
             <div className="lg:col-span-2 bg-brand-light rounded-2xl p-10 lg:p-12 flex flex-col justify-center">
@@ -113,8 +109,6 @@ export function About() {
                 alt="The Baobab Practice"
                 className="size-50 md:size-75"
                />
-              {/* <p className="text-sm font-medium text-brand-green mb-6">{fourfoldWisdom[0].subtitle}</p> */}
-              {/* <p className="text-base leading-relaxed text-muted-foreground">{fourfoldWisdom[0].description}</p> */}
             </div>
 
             {/* Three smaller items */}
@@ -136,14 +130,15 @@ export function About() {
             </div>
           </div>
         </div>
+
+        <p className="max-w-4xl mx-auto px-4 text-center sm:px-6 lg:px-8 text-base leading-relaxed text-muted-foreground mt-2">
+              Old Baobabs often become hollow. But they do not die, they become community centers. People gather inside them. Animals find shelter. Life continues differently, not in spite of the emptiness, but because of it.
+            </p>
       </div>
 
       {/* The Empty Center — dramatic full-width dark section */}
       <div className="py-24 lg:py-36 bg-brand-earth text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-base leading-relaxed mb-10 text-brand-sand">
-            Old Baobabs often become hollow. But they do not die — they become community centers. People gather inside them. Animals find shelter. Life continues differently, not in spite of the emptiness, but because of it.
-          </p>
           {/* Statement moment */}
           <AnimateIn>
             <p className="text-3xl lg:text-4xl font-[family-name:var(--font-headline)] leading-tight text-white mb-16" style={{ fontWeight: 700 }}>
@@ -160,10 +155,10 @@ export function About() {
       </div>
 
       {/* Core Values — bold typographic list */}
-      <div className="py-24 lg:py-32 bg-brand-light">
+      <div className="py-24 bg-brand-light">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h3 className="mb-14 text-foreground text-xl">
-            What We Stand For
+            What We Practice
           </h3>
           <dl className="space-y-8">
             {coreValues.map((value, index) => (
@@ -173,18 +168,6 @@ export function About() {
               </div>
             ))}
           </dl>
-        </div>
-      </div>
-
-      {/* Invitation — centered statement */}
-      <div className="py-20 lg:py-28 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-base leading-relaxed text-muted-foreground mb-6" style={{ fontWeight: 300 }}>
-            We do not offer blueprints. Blueprints are for buildings — and you are not building, you are growing.
-          </p>
-          <p className="text-2xl lg:text-3xl font-[family-name:var(--font-headline)] leading-snug text-foreground" style={{ fontWeight: 700 }}>
-            Will you merely withstand the seasons, or will you learn their rhythms and grow through them?
-          </p>
         </div>
       </div>
     </section>

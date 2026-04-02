@@ -27,20 +27,26 @@ export function Hero() {
         <div className="max-w-2xl space-y-8">
           <AnimateIn variant="fade-up" delay={100} duration={800}>
             <h1 className='text-xl lg:text-3xl text-white'>  
-              Human.Led Change
+              The Baobab Practice - Human.Led Change
             </h1>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={300} duration={800}>
-            <p className="text-xl lg:text-3xl leading-relaxed text-white font-[family-name:var(--font-headline)]" style={{ fontWeight: 500 }}>
-              A world where people and organizations thrive through change.
+            <p className="text-xl lg:text-2xl text-white">
+              The Baobab Practice is a living promise. Practice means growth through disciplined, mindful action.
+            </p>
+          </AnimateIn>  
+          <AnimateIn variant="fade-up" delay={600} duration={800}>
+            <p className="text-xl lg:text-2xl text-white leading-relaxed pb-5">
+              The Baobab stands for wisdom that endures, deep roots, patient strength, and the ability to withstand generations of change.
+            </p>
+            <p className="text-xl lg:text-2xl text-white leading-relaxed pb-5">
+                We help organizations move through transitions with care, clarity, and confidence, by trusting people to shape the change they will carry forward.
+            </p>
+            <p className="text-xl lg:text-2xl text-white leading-relaxed">
+              Stronger teams. Healthier organizations. Change that lasts.
             </p>
           </AnimateIn>
-          <AnimateIn variant="fade-up" delay={500} duration={800}>
-            <p className="text-base lg:text-lg leading-relaxed text-white max-w-lg" style={{ fontWeight: 500 }}>
-              We partner with leaders and teams to navigate complex change through human-led, practice-based coaching.
-            </p>
-          </AnimateIn>
-          <AnimateIn variant="fade-up" delay={700} duration={800}>
+          <AnimateIn variant="fade-up" delay={800} duration={800}>
             <div className="pt-4">
               <Button size="lg" onClick={scrollToContact} className="bg-brand-clay text-white hover:bg-brand-clay/90 text-base px-8 py-6">
                 Start a Conversation
