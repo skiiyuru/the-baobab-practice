@@ -40,7 +40,7 @@ export function Hero() {
               The Baobab stands for wisdom that endures, deep roots, patient strength, and the ability to withstand generations of change.
             </p>
             <p className="text-xl lg:text-2xl text-white leading-relaxed pb-5">
-                We help organizations move through transitions with care, clarity, and confidence, by trusting people to shape the change they will carry forward.
+              The Baobab Practice helps organizations move through transitions with care, clarity, and confidence, by trusting people to shape the change they will carry forward.
             </p>
             <p className="text-xl lg:text-2xl text-white leading-relaxed">
               Stronger teams. Healthier organizations. Change that lasts.
