@@ -141,7 +141,7 @@ export function About() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Statement moment */}
           <AnimateIn>
-            <p className="text-3xl lg:text-4xl font-[family-name:var(--font-headline)] leading-tight text-white mb-16" style={{ fontWeight: 700 }}>
+            <p className="text-2xl lg:text-3xl font-[family-name:var(--font-headline)] leading-tight text-white mb-16" style={{ fontWeight: 700 }}>
               The strongest organizations are those who have learned to make their hollows into meeting places.
             </p>
           </AnimateIn>

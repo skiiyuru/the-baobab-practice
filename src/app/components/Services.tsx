@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AlertCircle, Users2, Compass, TrendingUp, Scaling, Sprout, TreeDeciduous, Leaf, Flower, ChevronDown, Scale, Flame, HeartHandshake } from 'lucide-react';
+import { AlertCircle, Users2, Compass, TrendingUp, Scaling, Sprout, TreeDeciduous, Leaf, Flower, ChevronDown, Scale, Flame, HeartHandshake, DatabaseZap, ChartNoAxesCombined } from 'lucide-react';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import journeyImg from '../../assets/journey.jpeg';
@@ -194,13 +194,13 @@ export function Services() {
               <ImageWithFallback
                 src={journeyImg}
                 alt="The Gathering Canopy - Collective strength through connection"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
             <div className="p-8 lg:p-12">
               <h4 className="text-2xl font-bold mb-2 text-foreground font-[family-name:var(--font-headline)]">Your Journey. Our Commitment.</h4>
 
-              <p className="text-lg lg:text-xl font-medium leading-relaxed text-foreground">
+              <p className="font-medium leading-relaxed text-foreground">
                 We walk alongside you, every step. Your organization knows its own terrain. We bring the tools, presence, and partnership to navigate it with clarity and confidence. No blueprints. No presets. Your path, your pace. Your change. Made to last.
               </p>
             </div>
@@ -267,12 +267,12 @@ export function Services() {
 
       {/* Baobab Distinctive Practices */}
       <div className="py-16 lg:py-24 bg-white/50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h3 className="text-2xl lg:text-3xl font-bold mb-12 text-center text-foreground font-[family-name:var(--font-headline)]">
             Baobab Distinctive Practices
           </h3>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
             {/* The Both/And Method */}
             <div className="bg-white p-8 rounded-2xl border-2 border-brand-sand flex flex-col h-full hover:border-brand-green/50 transition-colors duration-300">
               <Scale className="size-8 text-brand-clay mb-6" />
@@ -293,20 +293,17 @@ export function Services() {
               <h4 className="text-xl font-bold text-foreground mb-3 font-[family-name:var(--font-headline)]">Loss Acknowledgement Rituals</h4>
               <p className="text-base leading-relaxed text-muted-foreground">Honor what’s being left behind, grieve endings, and create psychological safety for new beginnings.</p>
             </div>
+
+            <div className="bg-white p-8 rounded-2xl border-2 border-brand-sand flex flex-col h-full hover:border-brand-green/50 transition-colors duration-300">
+              <ChartNoAxesCombined className="size-8 text-brand-clay mb-6" />
+              <h4 className="text-xl font-bold text-foreground mb-3 font-[family-name:var(--font-headline)]">Good Enough for Now, Safe Enough to Try</h4>
+              <p className="text-base leading-relaxed text-muted-foreground">Encourage rapid prototyping, value learning over perfection, and treat failure as data.</p>
+            </div>
           </div>
 
-          <div className="text-center bg-brand-green p-8 lg:p-12 rounded-2xl text-white">
-             <p className="text-2xl lg:text-3xl italic font-[family-name:var(--font-headline)] mb-6">
-               "Good Enough for Now, Safe Enough to Try"
-             </p>
-             <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-sm md:text-base font-medium opacity-90">
-               <span>Encourage rapid prototyping</span>
-               <span className="hidden md:block">•</span>
-               <span>Value learning over perfection</span>
-               <span className="hidden md:block">•</span>
-               <span>Treat failure as data</span>
-             </div>
-          </div>
+         
+
+
         </div>
       </div>
 
