@@ -1,6 +1,31 @@
+import { motion } from 'motion/react';
+import { ChevronDown } from 'lucide-react';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { AnimateIn } from './AnimateIn';
+
+const stagger = {
+  visible: {
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.25, 1, 0.5, 1] },
+  },
+};
+
+const fadeScale = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.6, ease: [0.25, 1, 0.5, 1] },
+  },
+};
 
 export function Hero() {
   const scrollToContact = () => {
@@ -10,8 +35,15 @@ export function Hero() {
     }
   };
 
+  const scrollToAbout = () => {
+    const element = document.getElementById('about');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center">
+    <section id="home" className="relative min-h-[100svh] flex items-center">
       {/* Background image — full bleed */}
       <div className="absolute inset-0">
         <ImageWithFallback
@@ -19,42 +51,119 @@ export function Hero() {
           alt="The Resilient Baobab - Grounded wisdom and timeless strength"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-earth/90 via-brand-earth/70 to-brand-earth/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-earth/92 via-brand-earth/72 to-brand-earth/25" />
       </div>
 
-      {/* Content — staggered entrance */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40 w-full">
-        <div className="max-w-2xl space-y-8">
-          <AnimateIn variant="fade-up" delay={100} duration={800}>
-            <h1 className='text-xl lg:text-3xl text-white'>  
-              The Baobab Practice - Human.Led Change
-            </h1>
-          </AnimateIn>
-          <AnimateIn variant="fade-up" delay={300} duration={800}>
-            <p className="text-xl lg:text-2xl text-white">
-              The Baobab Practice is a living promise. Practice means growth through disciplined, mindful action.
-            </p>
-          </AnimateIn>  
-          <AnimateIn variant="fade-up" delay={600} duration={800}>
-            <p className="text-xl lg:text-2xl text-white leading-relaxed pb-5">
-              The Baobab stands for wisdom that endures, deep roots, patient strength, and the ability to withstand generations of change.
-            </p>
-            <p className="text-xl lg:text-2xl text-white leading-relaxed pb-5">
-              The Baobab Practice helps organizations move through transitions with care, clarity, and confidence, by trusting people to shape the change they will carry forward.
-            </p>
-            <p className="text-xl lg:text-2xl text-white leading-relaxed">
-              Stronger teams. Healthier organizations. Change that lasts.
-            </p>
-          </AnimateIn>
-          <AnimateIn variant="fade-up" delay={800} duration={800}>
-            <div className="pt-4">
-              <Button size="lg" onClick={scrollToContact} className="bg-brand-clay text-white hover:bg-brand-clay/90 text-base px-8 py-6">
+      {/* Content — staggered entrance orchestration */}
+      <motion.div
+        className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-28 lg:pt-48 lg:pb-36 w-full"
+        variants={stagger}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="max-w-2xl">
+          {/* Eyebrow label */}
+          <motion.p
+            variants={fadeUp}
+            className="text-eyebrow mb-10"
+            style={{ color: 'var(--resilience-clay)' }}
+          >
+            Human&thinsp;·&thinsp;Led Change
+          </motion.p>
+
+          {/* h1 — fluid scale from base styles */}
+          <motion.h1
+            variants={fadeUp}
+            className="text-white mb-12"
+            style={{
+              maxWidth: '18ch',
+              textShadow: '0 2px 20px oklch(0.15 0.04 55 / 0.3)',
+            }}
+          >
+            The Baobab Practice
+          </motion.h1>
+
+          {/* Lead paragraph — slightly larger, sets the tone */}
+          <motion.p
+            variants={fadeUp}
+            className="text-white mb-5"
+            style={{
+              fontSize: 'clamp(1.1rem, 1.5vw + 0.5rem, 1.35rem)',
+              lineHeight: 1.6,
+              fontWeight: 400,
+              maxWidth: '52ch',
+            }}
+          >
+            The Baobab stands for wisdom that endures — deep roots, patient strength, and the
+            ability to withstand generations of change.
+          </motion.p>
+
+          {/* Body — main descriptive paragraph */}
+          <motion.p
+            variants={fadeUp}
+            className="text-white mb-10"
+            style={{
+              fontSize: '1rem',
+              lineHeight: 1.75,
+              color: 'oklch(0.90 0.015 75)',
+              maxWidth: '55ch',
+            }}
+          >
+            We help organizations move through transitions with care, clarity, and confidence —
+            by trusting people to shape the change they will carry forward.
+          </motion.p>
+
+          {/* Closing statement — typographically distinct */}
+          <motion.p
+            variants={fadeUp}
+            className="text-statement mb-12"
+            style={{
+              color: 'oklch(0.82 0.05 70)',
+              maxWidth: '42ch',
+            }}
+          >
+            Stronger teams. Healthier organizations. Change that lasts.
+          </motion.p>
+
+          {/* CTA cluster */}
+          <motion.div variants={fadeScale} className="flex items-center gap-6 flex-wrap">
+            <motion.div
+              whileHover={{ y: -2, boxShadow: '0 8px 24px oklch(0.58 0.14 45 / 0.3)' }}
+              whileTap={{ y: 1, scale: 0.98 }}
+              transition={{ duration: 0.15, ease: [0.25, 1, 0.5, 1] }}
+              className="rounded-lg"
+            >
+              <Button
+                size="lg"
+                onClick={scrollToContact}
+                className="bg-brand-clay text-white hover:bg-brand-clay/90 text-base px-10 py-6 shadow-lg"
+              >
                 Start a Conversation
               </Button>
-            </div>
-          </AnimateIn>
+            </motion.div>
+            <button
+              onClick={scrollToAbout}
+              className="text-white/80 hover:text-white text-sm font-medium transition-colors flex items-center gap-1.5"
+              style={{ transitionDuration: 'var(--duration-fast)' }}
+            >
+              Learn about our approach
+              <span className="inline-block" aria-hidden="true">→</span>
+            </button>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
+
+      {/* Scroll hint — anchored to bottom */}
+      <motion.button
+        onClick={scrollToAbout}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-hint"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 0.8 }}
+        aria-label="Scroll down"
+      >
+        <ChevronDown className="size-6 text-white/60" />
+      </motion.button>
     </section>
   );
 }

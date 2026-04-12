@@ -1,5 +1,6 @@
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Button } from './ui/button';
 import logo from '../../assets/logo_full.png';
 
@@ -40,21 +41,35 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <button onClick={scrollToTop} className="flex items-center" aria-label="Go to top">
+          <motion.button
+            onClick={scrollToTop}
+            className="flex items-center"
+            aria-label="Go to top"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.15 }}
+          >
             <img
               src={logo}
               alt="The Baobab Practice"
               className="h-10 w-auto transition-all md:h-20"
               style={{
-                // filter: scrolled ? 'none' : 'brightness(0) invert(1)',
                 transitionTimingFunction: 'var(--ease-out-quart)',
                 transitionDuration: 'var(--duration-normal)',
               }}
             />
-            <span className="ml-2 md:ml-4 text-lg md:text-xl font-[family-name:var(--font-headline)] font-semibold"
-              style={{color: scrolled ? 'var(--foreground)' : 'rgba(255,255,255,0.9)',}}
-            >The Baobab Practice</span>
-          </button>
+            <span
+              className="ml-2 md:ml-4 text-lg md:text-xl font-semibold transition-colors"
+              style={{
+                fontFamily: 'var(--font-headline)',
+                color: scrolled ? 'var(--foreground)' : 'rgba(255,255,255,0.9)',
+                transitionTimingFunction: 'var(--ease-out-quart)',
+                transitionDuration: 'var(--duration-normal)',
+              }}
+            >
+              The Baobab Practice
+            </span>
+          </motion.button>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
@@ -62,21 +77,26 @@ export function Header() {
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className="font-medium capitalize transition-colors hover:cursor-pointer"
+                className="nav-link font-medium capitalize hover:cursor-pointer"
                 style={{
                   color: scrolled ? 'var(--foreground)' : 'rgba(255,255,255,0.9)',
-                  transitionTimingFunction: 'var(--ease-out-quart)',
-                  transitionDuration: 'var(--duration-fast)',
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--warm-sand)'}
-                onMouseLeave={(e) => e.currentTarget.style.color = scrolled ? 'var(--foreground)' : 'rgba(255,255,255,0.9)'}
               >
                 {section}
               </button>
             ))}
-            <Button onClick={() => scrollToSection('contact')} className="bg-brand-clay text-white hover:bg-brand-clay/90">
-              Contact Us
-            </Button>
+            <motion.div
+              whileHover={{ y: -1 }}
+              whileTap={{ y: 1, scale: 0.98 }}
+              transition={{ duration: 0.12 }}
+            >
+              <Button
+                onClick={() => scrollToSection('contact')}
+                className="bg-brand-clay text-white hover:bg-brand-clay/90 shadow-sm"
+              >
+                Contact Us
+              </Button>
+            </motion.div>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -87,43 +107,47 @@ export function Header() {
             aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
-              <X className="size-6 hover:cursor-pointer" style={{ color: mobileMenuOpen ? 'var(--foreground)' : 'white' }} />
+              <X className="size-6 hover:cursor-pointer" style={{ color: 'var(--foreground)' }} />
             ) : (
-              <Menu className="size-6 hover:cursor-pointer" style={{ color: mobileMenuOpen || scrolled ? 'var(--foreground)' : 'white' }} />
+              <Menu
+                className="size-6 hover:cursor-pointer"
+                style={{ color: scrolled ? 'var(--foreground)' : 'white' }}
+              />
             )}
           </button>
         </div>
 
-        {/* Mobile Navigation — slide down */}
-        <div
-          className="md:hidden overflow-hidden transition-all"
-          style={{
-            maxHeight: mobileMenuOpen ? '300px' : '0',
-            opacity: mobileMenuOpen ? 1 : 0,
-            transitionTimingFunction: 'var(--ease-out-quart)',
-            transitionDuration: 'var(--duration-slow)',
-          }}
-        >
-          <nav className="py-4 border-t border-border">
-            <div className="flex flex-col gap-4">
-              {['about', 'services', 'founder'].map((section) => (
-                <button
-                  key={section}
-                  onClick={() => scrollToSection(section)}
-                  className="text-left font-medium text-background py-2 capitalize hover:cursor-pointer"
-                  style={{
-                    color: mobileMenuOpen ? 'var(--foreground)' : 'rgba(255,255,255,0.9)',
-                  }}
+        {/* Mobile Navigation — animated with AnimatePresence */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.nav
+              className="md:hidden py-4 border-t border-border overflow-hidden"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+            >
+              <div className="flex flex-col gap-4">
+                {['about', 'services', 'founder'].map((section) => (
+                  <button
+                    key={section}
+                    onClick={() => scrollToSection(section)}
+                    className="text-left font-medium py-2 capitalize hover:cursor-pointer"
+                    style={{ color: 'var(--foreground)' }}
+                  >
+                    {section}
+                  </button>
+                ))}
+                <Button
+                  onClick={() => scrollToSection('contact')}
+                  className="w-full bg-brand-clay text-white hover:bg-brand-clay/90"
                 >
-                  {section}
-                </button>
-              ))}
-              <Button onClick={() => scrollToSection('contact')} className="w-full bg-brand-clay text-white hover:bg-brand-clay/90">
-                Contact Us
-              </Button>
-            </div>
-          </nav>
-        </div>
+                  Contact Us
+                </Button>
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );
