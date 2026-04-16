@@ -62,15 +62,6 @@ export function Hero() {
         animate="visible"
       >
         <div className="max-w-2xl">
-          {/* Eyebrow label */}
-          <motion.p
-            variants={fadeUp}
-            className="text-eyebrow mb-10"
-            style={{ color: 'var(--resilience-clay)' }}
-          >
-            Human&thinsp;·&thinsp;Led Change
-          </motion.p>
-
           {/* h1 — fluid scale from base styles */}
           <motion.h1
             variants={fadeUp}
@@ -80,7 +71,7 @@ export function Hero() {
               textShadow: '0 2px 20px oklch(0.15 0.04 55 / 0.3)',
             }}
           >
-            The Baobab Practice
+            The Baobab Practice - Human&thinsp;·&thinsp;Led Change
           </motion.h1>
 
           {/* Lead paragraph — slightly larger, sets the tone */}
@@ -101,12 +92,12 @@ export function Hero() {
           {/* Body — main descriptive paragraph */}
           <motion.p
             variants={fadeUp}
-            className="text-white mb-10"
+            className="text-white mb-5"
             style={{
-              fontSize: '1rem',
-              lineHeight: 1.75,
-              color: 'oklch(0.90 0.015 75)',
-              maxWidth: '55ch',
+              fontSize: 'clamp(1.1rem, 1.5vw + 0.5rem, 1.35rem)',
+              lineHeight: 1.6,
+              fontWeight: 400,
+              maxWidth: '52ch',
             }}
           >
             We help organizations move through transitions with care, clarity, and confidence —
@@ -116,10 +107,12 @@ export function Hero() {
           {/* Closing statement — typographically distinct */}
           <motion.p
             variants={fadeUp}
-            className="text-statement mb-12"
-            style={{
-              color: 'oklch(0.82 0.05 70)',
-              maxWidth: '42ch',
+            className="text-white mb-5"
+           style={{
+              fontSize: 'clamp(1.1rem, 1.5vw + 0.5rem, 1.35rem)',
+              lineHeight: 1.6,
+              fontWeight: 400,
+              maxWidth: '52ch',
             }}
           >
             Stronger teams. Healthier organizations. Change that lasts.

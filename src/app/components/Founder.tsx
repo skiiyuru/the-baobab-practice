@@ -1,6 +1,36 @@
 import { AnimateIn } from './AnimateIn';
 import founderImage from "../../assets/founder_2.png";
 
+/** Small decorative separator between founder bio chapters */
+function ChapterMark() {
+  return (
+    <AnimateIn variant="fade-in">
+      <div className="flex items-center gap-3 py-2" aria-hidden="true">
+        <span
+          style={{
+            width: '2rem',
+            height: '2px',
+            backgroundColor: 'var(--resilience-clay)',
+            opacity: 0.4,
+            display: 'block',
+            borderRadius: '1px',
+          }}
+        />
+        <span
+          style={{
+            fontSize: '0.5rem',
+            color: 'var(--resilience-clay)',
+            opacity: 0.5,
+            lineHeight: 1,
+          }}
+        >
+          ●
+        </span>
+      </div>
+    </AnimateIn>
+  );
+}
+
 export function Founder() {
   return (
     <section id="founder" className="py-24 lg:py-32 bg-white">
@@ -35,6 +65,7 @@ export function Founder() {
           </div>
 
           <div className="lg:col-span-7 space-y-8">
+            {/* Chapter 1 — Background & realization */}
             <AnimateIn delay={0.1}>
               <p className="text-base leading-relaxed text-muted-foreground" style={{ maxWidth: '58ch' }}>
                 I have spent over two decades working with organizations across Africa in moments of change
@@ -64,6 +95,9 @@ export function Founder() {
               </p>
             </AnimateIn>
 
+            <ChapterMark />
+
+            {/* Chapter 2 — The baobab connection */}
             <AnimateIn delay={0.35}>
               <p className="text-base leading-relaxed text-muted-foreground" style={{ maxWidth: '58ch' }}>
                 I chose the baobab as our symbol because it reflects something I believe deeply about growth.
@@ -71,6 +105,10 @@ export function Founder() {
                 That is the kind of growth I help organizations build.
               </p>
             </AnimateIn>
+
+            <ChapterMark />
+
+            {/* Chapter 3 — Professional background & philosophy */}
             <AnimateIn delay={0.4}>
               <p className="text-base leading-relaxed text-muted-foreground" style={{ maxWidth: '58ch' }}>
                 As an Organizational Development Coach, I work alongside leaders and teams to help them make sense of complexity, strengthen how they lead and work together, and build practices that sustain growth.

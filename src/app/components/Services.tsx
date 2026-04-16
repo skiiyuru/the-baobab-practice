@@ -134,70 +134,12 @@ const distinctivePractices = [
   },
 ];
 
-function PhaseAccordion({ phase, index }: { phase: typeof phases[0]; index: number }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const Icon = phase.icon;
 
-  return (
-    <AnimateIn delay={index * 0.08} variant="fade-up">
-      <div className={`rounded-xl border-2 overflow-hidden ${phase.phaseColor}`}>
-        <motion.button
-          onClick={() => setIsOpen(!isOpen)}
-          className="w-full flex items-center gap-4 p-5 lg:p-6 text-left"
-          aria-expanded={isOpen}
-          whileHover={{ backgroundColor: 'rgba(0,0,0,0.03)' }}
-          transition={{ duration: 0.15 }}
-        >
-          <Icon className="size-7 flex-shrink-0" />
-          <div className="flex-1 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3">
-            <span className="text-lg font-bold">{phase.title}</span>
-            <span className="text-sm font-medium opacity-75">{phase.subtitle}</span>
-          </div>
-          <span className="text-sm font-medium opacity-75 hidden sm:block tabular-nums">{phase.duration}</span>
-          <motion.div
-            animate={{ rotate: isOpen ? 180 : 0 }}
-            transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
-          >
-            <ChevronDown className="size-5 flex-shrink-0" />
-          </motion.div>
-        </motion.button>
-
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
-              className="overflow-hidden"
-            >
-              <div className="px-5 lg:px-6 pb-6 pt-2 border-t border-current/10">
-                <p className="text-sm font-medium mb-4 sm:hidden">{phase.duration}</p>
-                <p className="font-medium text-foreground mb-4" style={{ maxWidth: '58ch' }}>{phase.purpose}</p>
-                <ul className="space-y-2 mb-4">
-                  {phase.activities.map((activity, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm">
-                      <span className="mt-0.5 opacity-50">•</span>
-                      <span className="text-muted-foreground">{activity}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-sm font-semibold text-foreground">
-                  Deliverable: <span className="font-medium">{phase.deliverable}</span>
-                </p>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </AnimateIn>
-  );
-}
 
 export function Services() {
   return (
     <section id="services" className="bg-brand-light">
-      {/* Our Promise — left-aligned editorial statement */}
+      {/* Our Promise — editorial statement with oversized typographic accent */}
       <div className="py-16 lg:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateIn>
@@ -214,9 +156,28 @@ export function Services() {
               We will not just help you solve today's problem.
             </p>
           </AnimateIn>
-          <AnimateIn delay={0.15}>
+          {/* Oversized em dash — typographic breath */}
+          <AnimateIn delay={0.1} variant="fade-in">
+            <div className="my-6 lg:my-8">
+              <span
+                aria-hidden="true"
+                style={{
+                  fontFamily: 'var(--font-headline)',
+                  fontSize: 'clamp(3rem, 5vw, 5rem)',
+                  fontWeight: 200,
+                  lineHeight: 0.5,
+                  color: 'var(--resilience-clay)',
+                  opacity: 0.35,
+                  display: 'block',
+                  userSelect: 'none',
+                }}
+              >
+                —
+              </span>
+            </div>
+          </AnimateIn>
+          <AnimateIn delay={0.2}>
             <p
-              className="mt-5"
               style={{
                 fontFamily: 'var(--font-headline)',
                 fontSize: 'clamp(1.6rem, 3vw + 0.5rem, 2.5rem)',
@@ -233,203 +194,97 @@ export function Services() {
         </div>
       </div>
 
-      {/* Service Frameworks — numbered list with stag­ger and hover */}
-      <div className="py-16 lg:py-24 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimateIn>
-            <h2 className="mb-12 text-foreground">
-              Our Frameworks
-            </h2>
-          </AnimateIn>
-
-          <div className="space-y-0">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <AnimateIn key={index} delay={index * 0.08} variant="fade-up">
-                  <motion.div
-                    className="flex items-start gap-6 py-8 px-3 -mx-3 hoverable-row"
-                    style={{
-                      borderTop: index === 0 ? '1px solid var(--border)' : undefined,
-                      borderBottom: '1px solid var(--border)',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: 'var(--font-headline)',
-                        fontSize: 'clamp(2rem, 3vw, 3rem)',
-                        fontWeight: 700,
-                        lineHeight: 1,
-                        color: 'var(--resilience-clay)',
-                        opacity: 0.25,
-                        flexShrink: 0,
-                        width: '3.5rem',
-                        paddingTop: '0.1rem',
-                      }}
-                    >
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-1">
-                        <Icon className={`size-5 flex-shrink-0 ${service.iconColor}`} />
-                        <h3 className="text-foreground" style={{ fontSize: '1.15rem', fontWeight: 600, lineHeight: 1.3 }}>
-                          {service.title}
-                        </h3>
-                      </div>
-                      <p className="text-sm font-medium text-brand-green mb-2">{service.subtitle}</p>
-                      <p className="text-base leading-relaxed text-muted-foreground" style={{ maxWidth: '52ch' }}>{service.description}</p>
-                    </div>
-                  </motion.div>
-                </AnimateIn>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-      {/* Visual Break */}
-      <div className="py-8 lg:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimateIn variant="fade-scale" duration={0.8}>
-            <div className="grid lg:grid-cols-2 gap-0 items-center rounded-2xl overflow-hidden bg-white">
-              <div className="aspect-[4/3] relative">
-                <ImageWithFallback
-                  src={journeyImg}
-                  alt="The Gathering Canopy - Collective strength through connection"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="p-8 lg:p-14">
-                <h3 className="mb-5 text-foreground">Your Journey. Our Commitment.</h3>
-                <p className="text-base font-medium leading-relaxed text-foreground" style={{ maxWidth: '42ch' }}>
-                  We walk alongside you, every step. Your organization knows its own terrain. We bring the tools, presence, and partnership to navigate it with clarity and confidence. No blueprints. No presets. Your path, your pace. Your change. Made to last.
-                </p>
-              </div>
-            </div>
-          </AnimateIn>
-        </div>
-      </div>
-
-      {/* The Baobab Growth Cycle — accordion timeline with animated expand */}
-      <div className="py-20 lg:py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
+      {/* Service Frameworks — expansive editorial row layout */}
+      <div className="py-24 lg:py-32 bg-white relative overflow-hidden">
+        {/* Ambient background decoration */}
+        <motion.div 
+          className="absolute right-0 top-0 w-1/2 md:w-1/3 aspect-square rounded-full blur-3xl pointer-events-none"
+          style={{ backgroundColor: 'var(--resilience-clay)', opacity: 0.08 }}
+          animate={{ x: [0, -40, 0], y: [0, 50, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 lg:mb-24">
             <AnimateIn>
-              <h3 className="text-foreground mb-3">
-                The Baobab Growth Cycle™
-              </h3>
+              <h2 className="text-foreground text-5xl lg:text-6xl max-w-xl leading-tight tracking-tight mb-0">
+                Architectures <br/>
+                <span className="font-serif italic font-normal text-4xl lg:text-5xl" style={{ color: 'var(--growth-green)' }}>for change</span>
+              </h2>
             </AnimateIn>
             <AnimateIn delay={0.1}>
-              <p className="text-base text-muted-foreground" style={{ maxWidth: '44ch' }}>
-                Cyclical, not linear — authentic growth requires continuous learning.
+              <p className="text-lg text-muted-foreground max-w-sm lg:text-right border-l-2 lg:border-l-0 lg:border-r-2 border-brand-green/30 pl-4 lg:pl-0 lg:pr-4 m-0">
+                We approach complex challenges through five foundational lenses. Not as rigid blueprints, but as adaptive starting points.
               </p>
             </AnimateIn>
           </div>
 
-          <div className="space-y-4">
-            {phases.map((phase, index) => (
-              <PhaseAccordion key={index} phase={phase} index={index} />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* What Makes Us Different — comparison table with hover */}
-      <div className="py-16 lg:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimateIn>
-            <h3 className="mb-12 text-center text-foreground">
-              What Makes Us Different
-            </h3>
-          </AnimateIn>
-
-          <AnimateIn variant="fade-scale" delay={0.1}>
-            <div className="rounded-2xl overflow-hidden border-2 border-brand-green">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="bg-brand-earth">
-                      <th className="py-5 px-6 text-left text-white font-bold text-lg">Traditional Approach</th>
-                      <th className="py-5 px-6 text-left text-white font-bold text-lg">The Baobab Framework</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {[
-                      ['Plans then implements', 'Experiments then learns'],
-                      ['Manages resistance', 'Engages resistance as data'],
-                      ['Focuses on adoption', 'Focuses on adaptation'],
-                      ['Creates dependency on experts', 'Builds internal capability'],
-                      ['Measures compliance', 'Measures learning and growth'],
-                      ['Linear, project-based', 'Cyclical, practice-based'],
-                    ].map(([traditional, baobab], index) => (
-                      <tr
-                        key={index}
-                        className={`transition-colors ${index % 2 === 0 ? 'bg-white' : 'bg-brand-light'}`}
-                        style={{ transitionDuration: 'var(--duration-fast)' }}
-                      >
-                        <td className="py-4 px-6 border-b border-brand-sand text-muted-foreground">{traditional}</td>
-                        <td className="py-4 px-6 border-b border-brand-sand font-semibold text-brand-green">{baobab}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </AnimateIn>
-        </div>
-      </div>
-
-      {/* Baobab Distinctive Practices — asymmetric numbered layout */}
-      <div className="py-16 lg:py-24">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimateIn>
-            <h3 className="mb-12 text-foreground">
-              Baobab Distinctive Practices
-            </h3>
-          </AnimateIn>
-
-          <div className="space-y-0">
-            {distinctivePractices.map((practice, index) => {
-              const Icon = practice.icon;
-              const isEven = index % 2 !== 0;
+          <div className="w-full">
+            {services.map((service, index) => {
+              const Icon = service.icon;
               return (
                 <AnimateIn key={index} delay={index * 0.1} variant="fade-up">
-                  <motion.div
-                    className="flex items-start gap-6 py-10 px-3 -mx-3 hoverable-row"
-                    style={{
-                      borderBottom: '1px solid var(--border)',
-                      borderTop: index === 0 ? '1px solid var(--border)' : undefined,
-                      paddingLeft: isEven ? 'clamp(12px, 10vw, 6rem)' : undefined,
-                    }}
+                  <motion.div 
+                    initial="idle"
+                    whileHover="hover"
+                    className="group relative flex flex-col lg:flex-row items-start lg:items-center py-10 lg:py-12 border-t border-border last:border-b"
                   >
-                    <span
-                      style={{
-                        fontFamily: 'var(--font-headline)',
-                        fontSize: 'clamp(2rem, 3vw, 3.5rem)',
-                        fontWeight: 700,
-                        lineHeight: 1,
-                        color: 'var(--resilience-clay)',
-                        opacity: 0.25,
-                        flexShrink: 0,
-                        width: '3.5rem',
-                        paddingTop: '0.1rem',
-                      }}
-                    >
-                      {practice.numeral}
-                    </span>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-3 mb-3">
-                        <Icon className={`size-6 flex-shrink-0 ${practice.iconColor}`} />
-                        <h3
-                          className="text-foreground"
-                          style={{ fontSize: '1.15rem', fontWeight: 600, lineHeight: 1.3 }}
+                    {/* Background hover highlight */}
+                    <motion.div 
+                      variants={{ idle: { scaleY: 0.8, opacity: 0 }, hover: { scaleY: 1, opacity: 1 } }}
+                      transition={{ duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
+                      style={{ originY: 0.5 }}
+                      className="absolute inset-x-[-1.5rem] inset-y-0 bg-brand-light rounded-md z-0 pointer-events-none hidden lg:block"
+                    />
+
+                    <div className="relative z-10 flex flex-col lg:flex-row w-full gap-x-8 gap-y-4 lg:items-center">
+                      {/* Column 1: Numeral & Icon */}
+                      <div className="flex items-center gap-6 lg:w-[22%] w-full">
+                        <motion.span 
+                          variants={{
+                            idle: { color: 'var(--resilience-clay)', opacity: 0.25, x: 0 },
+                            hover: { color: 'var(--growth-green)', opacity: 0.9, x: 8 }
+                          }}
+                          transition={{ duration: 0.3 }}
+                          className="font-headline font-light text-5xl lg:text-[4.5rem] shrink-0 w-[4.5rem] leading-none tabular-nums"
                         >
-                          {practice.title}
-                        </h3>
+                           {String(index + 1).padStart(2, '0')}
+                        </motion.span>
+                        <motion.div
+                          variants={{
+                            idle: { scale: 1, rotate: 0 },
+                            hover: { scale: 1.15, rotate: 12 }
+                          }}
+                          transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                        >
+                          <Icon className={`size-10 lg:size-12 ${service.iconColor}`} />
+                        </motion.div>
                       </div>
-                      <p className="text-base leading-relaxed text-muted-foreground" style={{ maxWidth: '52ch' }}>
-                        {practice.description}
-                      </p>
+
+                      {/* Column 2: Title & Subtitle */}
+                      <div className="lg:w-[38%] w-full pl-[6rem] lg:pl-0 mt-2 lg:mt-0">
+                        <motion.h3 
+                          variants={{ idle: { x: 0 }, hover: { x: 12 } }}
+                          transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                          className="text-xl lg:text-2xl font-bold text-foreground mb-1 tracking-tight"
+                        >
+                          {service.title}
+                        </motion.h3>
+                        <motion.p
+                          variants={{ idle: { x: 0 }, hover: { x: 12 } }}
+                          transition={{ type: "spring", stiffness: 400, damping: 25, delay: 0.05 }}
+                          className="text-brand-green font-serif italic text-lg opacity-90 m-0"
+                        >
+                          {service.subtitle}
+                        </motion.p>
+                      </div>
+
+                      {/* Column 3: Description */}
+                      <div className="lg:w-[40%] w-full pl-[6rem] lg:pl-0 mt-2 lg:mt-0">
+                        <p className="text-muted-foreground leading-relaxed text-base lg:text-[1.05rem] max-w-lg group-hover:text-foreground transition-colors duration-300 m-0">
+                          {service.description}
+                        </p>
+                      </div>
                     </div>
                   </motion.div>
                 </AnimateIn>
@@ -439,40 +294,392 @@ export function Services() {
         </div>
       </div>
 
-      {/* CTA */}
-      <div className="py-16 lg:py-24 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimateIn>
-            <p
-              className="text-display"
-              style={{
-                color: 'var(--foreground)',
-                maxWidth: '28ch',
-                marginBottom: '2.5rem',
-              }}
-            >
-              Ready for Human.Led Change?
-            </p>
-          </AnimateIn>
-          <AnimateIn delay={0.15} variant="fade-scale">
-            <motion.div
-              className="inline-block rounded-lg"
-              whileHover={{ y: -2, boxShadow: '0 8px 24px oklch(0.58 0.14 45 / 0.3)' }}
-              whileTap={{ y: 1, scale: 0.98 }}
-              transition={{ duration: 0.15, ease: [0.25, 1, 0.5, 1] }}
-            >
-              <Button
-                size="lg"
-                onClick={() => {
-                  const element = document.getElementById('contact');
-                  if (element) element.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="bg-brand-clay text-white hover:bg-brand-clay/90 shadow-lg"
-              >
-                Start a Conversation
-              </Button>
-            </motion.div>
-          </AnimateIn>
+      {/* Visual Break - Distilled */}
+      <div className="py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
+            
+            {/* Image */}
+            <div className="w-full lg:w-1/2">
+              <AnimateIn variant="fade-up" duration={0.8}>
+                 <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-sm">
+                   <motion.div
+                     whileHover={{ scale: 1.03 }}
+                     transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+                     className="w-full h-full"
+                   >
+                     <ImageWithFallback
+                       src={journeyImg}
+                       alt="The Gathering Canopy - Collective strength through connection"
+                       className="w-full h-full object-cover"
+                     />
+                   </motion.div>
+                 </div>
+              </AnimateIn>
+            </div>
+            
+            {/* Typography */}
+            <div className="w-full lg:w-1/2 lg:pl-8">
+               <AnimateIn delay={0.2} variant="fade-up">
+                 <h3 className="text-4xl lg:text-5xl lg:leading-[1.1] font-headline tracking-tighter text-foreground mb-8">
+                   Your Journey.<br />
+                   <span className="font-serif italic text-brand-clay font-normal">Our Commitment.</span>
+                 </h3>
+                 
+                 <p className="text-xl text-muted-foreground leading-relaxed max-w-lg mb-10">
+                   We walk alongside you, every step. Your organization knows its own terrain. We bring the tools, presence, and partnership to navigate it with clarity and confidence.
+                 </p>
+                 
+                 <div className="pl-6 border-l-[3px] w-full max-w-lg border-brand-green/30">
+                   <p className="text-lg font-medium text-foreground leading-relaxed mb-1">
+                     No blueprints. No presets.<br />
+                     Your path, your pace.
+                   </p>
+                   <p className="font-serif italic text-2xl text-brand-clay m-0 mt-2">
+                     Your change. Made to last.
+                   </p>
+                 </div>
+               </AnimateIn>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* The Baobab Growth Cycle — Asymmetric Editorial Timeline */}
+      <div className="py-24 lg:py-36 bg-brand-light relative overflow-hidden">
+        {/* Subtle top border texture linking it to the previous section */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-clay/20 to-transparent" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+             {/* Left - Sticky Intro */}
+             <div className="lg:w-1/3">
+               <div className="lg:sticky lg:top-32">
+                  <AnimateIn>
+                    <p className="text-xs tracking-[0.2em] uppercase font-semibold text-brand-green/80 flex items-center gap-4 mb-4">
+                      <span className="w-8 h-[2px] bg-brand-green/80"></span>
+                      Our Process
+                    </p>
+                    <h3 className="text-4xl lg:text-6xl font-headline tracking-tight text-foreground mb-6 leading-[1.1]">
+                      The Baobab<br/>Growth Cycle™
+                    </h3>
+                  </AnimateIn>
+                  <AnimateIn delay={0.1}>
+                    <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-sm m-0">
+                      Cyclical, not linear. Authentic, sustainable growth requires patient development through distinct, living phases of learning.
+                    </p>
+                  </AnimateIn>
+               </div>
+             </div>
+
+             {/* Right - The Immersive Timeline */}
+             <div className="lg:w-2/3 relative">
+                <div className="flex flex-col relative">
+                  {/* Desktop Connecting Line Tracker */}
+                  <div className="hidden md:block absolute left-[39px] lg:left-[47px] top-[40px] bottom-[100px] w-[2px] bg-brand-clay/10 z-0" />
+
+                  {phases.map((phase, index) => {
+                    const Icon = phase.icon;
+                    return (
+                       <div key={index} className="relative z-10 group flex flex-col md:flex-row md:items-start gap-4 lg:gap-10 pb-16 lg:pb-24">
+                          
+                          {/* Mobile Header (Hidden on Desktop) */}
+                          <div className="flex items-center gap-4 md:hidden mb-4 relative bg-brand-light z-10">
+                               <motion.div 
+                                 className={`w-16 h-16 rounded-full flex items-center justify-center shrink-0 border-[4px] border-brand-light shadow-sm ${phase.phaseColor}`}
+                               >
+                                  <Icon className="size-6" />
+                               </motion.div>
+                               <div>
+                                  <h4 className="text-xl font-headline font-semibold text-foreground m-0">
+                                    {phase.title}
+                                  </h4>
+                                  <span className="text-[0.65rem] font-bold tracking-widest uppercase text-brand-green bg-brand-green/10 px-2 py-1 rounded-full w-fit block mt-1">
+                                    {phase.duration}
+                                  </span>
+                               </div>
+                          </div>
+
+                          {/* Desktop Anchor Node Column */}
+                          <div className="hidden md:flex flex-col items-center shrink-0 relative bg-brand-light pb-2">
+                             <motion.div 
+                               className={`w-20 h-20 lg:w-24 lg:h-24 rounded-full flex items-center justify-center relative z-10 border-[8px] border-brand-light shadow-sm bg-white ${phase.phaseColor}`}
+                               whileHover={{ scale: 1.15, rotate: 12 }}
+                               transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                             >
+                                <Icon className="size-8 lg:size-10" />
+                             </motion.div>
+                          </div>
+                          
+                          {/* Data Column */}
+                          <div className="flex-1 md:pt-4">
+                             <AnimateIn delay={index * 0.1} variant="fade-up">
+
+                                {/* Desktop Header */}
+                                <div className="hidden md:block mb-8">
+                                  <motion.div 
+                                     className="flex items-center gap-4 mb-2 relative left-0"
+                                     whileHover={{ x: 5 }}
+                                     transition={{ duration: 0.2 }}
+                                  >
+                                      <h4 className="text-2xl lg:text-3xl font-headline font-semibold tracking-wide text-foreground m-0">
+                                        {phase.title}
+                                      </h4>
+                                      <span className="text-xs font-bold tracking-widest uppercase text-brand-green bg-brand-green/10 px-3 py-1.5 rounded-full tabular-nums w-fit">
+                                        {phase.duration}
+                                      </span>
+                                  </motion.div>
+                                  <p className="text-xl lg:text-2xl font-serif italic text-muted-foreground m-0">
+                                    {phase.subtitle}
+                                  </p>
+                                </div>
+                                
+                                {/* Mobile Subtitle */}
+                                <div className="md:hidden mb-6">
+                                  <p className="text-lg font-serif italic text-muted-foreground m-0">
+                                    {phase.subtitle}
+                                  </p>
+                                </div>
+
+                                {/* Phase Content Card */}
+                                <motion.div 
+                                  className={`p-6 md:p-8 lg:p-10 rounded-2xl border-2 bg-white/50 ${phase.phaseColor} transition-all duration-300`}
+                                  whileHover={{ y: -4, boxShadow: '0 20px 40px -10px oklch(0.35 0.05 55 / 0.06)' }}
+                                >
+                                   <p className="text-lg lg:text-xl font-medium text-foreground mb-8 leading-relaxed max-w-3xl m-0">
+                                     {phase.purpose}
+                                   </p>
+
+                                   <div className="flex flex-col xl:flex-row gap-8 lg:gap-12 mt-8 border-t border-black/5 pt-8">
+                                      {/* Activities List */}
+                                      <div className="flex-1">
+                                        <p className="text-xs uppercase tracking-[0.15em] font-bold text-foreground/40 mb-5 m-0">
+                                          Key Activities
+                                        </p>
+                                        <ul className="space-y-4 m-0 p-0 list-none">
+                                           {phase.activities.map((act, i) => (
+                                             <li key={i} className="flex items-start gap-4 text-base text-foreground/80 leading-relaxed">
+                                               <span className="mt-[0.6rem] w-1.5 h-1.5 rounded-full bg-brand-green/80 shrink-0" />
+                                               <span>{act}</span>
+                                             </li>
+                                           ))}
+                                        </ul>
+                                      </div>
+
+                                      {/* Deliverable Block */}
+                                      <div className="xl:w-1/3">
+                                         <div className="bg-white/80 p-6 rounded-xl border border-black/5 h-full flex flex-col justify-center">
+                                            <p className="text-xs uppercase tracking-[0.15em] font-bold text-foreground/40 mb-3 m-0">
+                                              Deliverable
+                                            </p>
+                                            <p className="text-base font-semibold text-foreground leading-snug m-0">
+                                              {phase.deliverable}
+                                            </p>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </motion.div>
+                                
+                             </AnimateIn>
+                          </div>
+                          
+                       </div>
+                    );
+                  })}
+                </div>
+             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* What Makes Us Different — Brutalist Shift Manifesto */}
+      <div className="py-24 lg:py-36 bg-brand-earth text-white selection:bg-brand-sand selection:text-brand-earth overflow-hidden relative">
+        {/* Abstract graphic element in background to add depth */}
+        <motion.div 
+          className="absolute -right-20 -top-20 w-96 h-96 rounded-full border-[100px] border-white/5 pointer-events-none hidden lg:block"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+        />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20 md:mb-32">
+            <AnimateIn>
+              <h2 className="text-5xl lg:text-7xl xl:text-[6rem] leading-[0.95] tracking-tight m-0" style={{ color: 'white' }}>
+                A shift in <br />
+                <span className="font-serif italic font-normal" style={{ color: 'var(--growth-green)' }}>practice.</span>
+              </h2>
+            </AnimateIn>
+            <AnimateIn delay={0.1}>
+              <p className="text-lg md:text-xl max-w-sm m-0 md:text-right font-medium" style={{ color: 'var(--warm-sand)' }}>
+                Traditional consulting focuses on static adoption. We focus on sustainable, living adaptation.
+              </p>
+            </AnimateIn>
+          </div>
+
+          <div className="max-w-6xl ml-auto border-t border-white/10">
+            {[
+              ['Planning then implementing', 'Experimenting then learning'],
+              ['Managing resistance', 'Engaging resistance as data'],
+              ['Focusing on adoption', 'Focusing on adaptation'],
+              ['Creating dependency', 'Building internal capability'],
+              ['Measuring compliance', 'Measuring learning and growth'],
+              ['Linear project timelines', 'Cyclical, ongoing practice'],
+            ].map(([traditional, baobab], index) => (
+               <AnimateIn key={index} delay={index * 0.08} variant="fade-in">
+                 <motion.div 
+                   initial="idle"
+                   whileHover="hover"
+                   className="group flex flex-col md:flex-row items-start md:items-center py-10 md:py-12 border-b border-white/10 relative cursor-default"
+                 >
+                   {/* Traditional Approach (Faded + Crossed out) */}
+                   <div className="w-full md:w-[45%] pr-8 mb-4 md:mb-0">
+                     <p className="text-[0.65rem] uppercase tracking-[0.2em] text-white/30 mb-3 font-semibold">Instead of</p>
+                     <p className="text-2xl md:text-3xl font-medium text-white/30 line-through decoration-white/20 m-0">
+                       {traditional}
+                     </p>
+                   </div>
+
+                   {/* Divider / Arrow for desktop */}
+                   <div className="hidden md:flex w-[10%] justify-center">
+                     <motion.div
+                       variants={{
+                         idle: { x: 0, opacity: 0.2, color: 'rgba(255,255,255,0.5)' },
+                         hover: { x: 10, opacity: 1, color: 'var(--growth-green)' }
+                       }}
+                       transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                     >
+                       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                         <path d="M5 12h14"></path>
+                         <path d="m12 5 7 7-7 7"></path>
+                       </svg>
+                     </motion.div>
+                   </div>
+
+                   {/* The Baobab Framework (Bold + Highlighted) */}
+                   <div className="w-full md:w-[45%] md:pl-8 mt-2 md:mt-0">
+                     <p className="text-[0.65rem] uppercase tracking-[0.2em] mb-3 font-semibold group-hover:text-brand-green/80 text-brand-green/40 transition-colors">We believe in</p>
+                     <motion.p 
+                       variants={{
+                         idle: { x: 0 },
+                         hover: { x: 10 }
+                       }}
+                       transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                       className="text-xl md:text-2xl lg:text-3xl font-headline font-bold leading-tight m-0 text-white group-hover:text-brand-green transition-colors duration-500"
+                     >
+                       {baobab}
+                     </motion.p>
+                   </div>
+                 </motion.div>
+               </AnimateIn>
+            ))}
+          </div>
+
+        </div>
+      </div>
+
+      {/* Baobab Distinctive Practices — Distilled Zigzag */}
+      <div className="py-24 lg:py-32 bg-brand-light relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col lg:items-center mb-16 lg:mb-24 lg:text-center text-left">
+            <AnimateIn>
+              <h2 className="text-4xl lg:text-6xl font-headline text-foreground tracking-tight mb-4">
+                Baobab Distinctive <span className="font-serif italic font-normal text-brand-green">Practices</span>
+              </h2>
+            </AnimateIn>
+            {/* <AnimateIn delay={0.1}>
+              <p className="text-lg text-muted-foreground max-w-xl lg:mx-auto m-0">
+                Four non-traditional disciplines that fundamentally reshape how change is integrated.
+              </p>
+            </AnimateIn> */}
+          </div>
+
+          <div className="flex flex-col gap-16 lg:gap-28">
+            {distinctivePractices.map((practice, index) => {
+              const Icon = practice.icon;
+              const isEven = index % 2 === 0;
+
+              return (
+                 <div 
+                   key={index}
+                   className={`group flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-10 lg:gap-16`}
+                 >
+                    {/* The Essence of the Visual */}
+                    <div className="w-full lg:w-1/3 flex justify-center relative">
+                       <AnimateIn delay={index * 0.1}>
+                         <motion.div
+                           className="relative flex items-center justify-center p-8"
+                           whileHover={{ scale: 1.1, rotate: isEven ? 5 : -5 }}
+                           transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                         >
+                           <Icon className={`size-20 lg:size-28 ${practice.iconColor} opacity-90`} />
+                           
+                           {/* Watermark Numeral */}
+                           <span className="absolute text-[8rem] lg:text-[12rem] font-headline font-bold text-brand-clay/10 -z-10 pointer-events-none select-none transition-colors duration-500 group-hover:text-brand-green/10">
+                             {practice.numeral}
+                           </span>
+                         </motion.div>
+                       </AnimateIn>
+                    </div>
+
+                    {/* The Essence of the Typography */}
+                    <div className="w-full lg:w-1/2">
+                       <AnimateIn delay={index * 0.1 + 0.1} variant="fade-up">
+                         <div className={`max-w-lg ${isEven ? 'lg:ml-0' : 'lg:ml-auto'}`}>
+                           <h4 className="text-2xl lg:text-4xl font-headline font-semibold mb-4 text-foreground leading-[1.2]">
+                             {practice.title}
+                           </h4>
+                           <p className="text-lg text-muted-foreground leading-relaxed m-0">
+                             {practice.description}
+                           </p>
+                         </div>
+                       </AnimateIn>
+                    </div>
+                 </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Impeccable Distilled CTA */}
+      <div className="py-24 lg:py-36 bg-brand-earth relative overflow-hidden selection:bg-brand-sand selection:text-brand-earth">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col md:flex-row items-start justify-between gap-12 lg:gap-24">
+             
+             {/* Left - The editorial headline */}
+             <div className="w-full md:w-1/2 lg:w-3/5">
+                <AnimateIn>
+                  <h2 className="text-4xl lg:text-6xl xl:text-7xl font-headline tracking-tight leading-[1.1] m-0 text-white">
+                    Ready for <br className="hidden lg:block"/>
+                    <span className="font-serif italic font-normal text-brand-green">Human.Led</span> Change?
+                  </h2>
+                </AnimateIn>
+             </div>
+
+             {/* Right - The grounded action */}
+             <div className="w-full md:w-1/2 lg:w-2/5 pt-2 md:pt-4">
+                <AnimateIn delay={0.1}>
+                  <p className="text-lg lg:text-xl leading-relaxed mb-10 m-0" style={{ color: 'var(--resilience-clay)' }}>
+                    Let's break the cycle of traditional consulting and begin building sustainable, living adaptation for your organization.
+                  </p>
+                </AnimateIn>
+                <AnimateIn delay={0.2} variant="fade-up">
+                  <Button
+                    size="lg"
+                    onClick={() => {
+                       const element = document.getElementById('contact');
+                       if (element) element.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="bg-brand-sand text-brand-earth hover:bg-white text-lg px-8 py-7 font-semibold transition-colors duration-300"
+                    style={{ borderRadius: '0.625rem' }}
+                  >
+                    Start a Conversation
+                  </Button>
+                </AnimateIn>
+             </div>
+          </div>
         </div>
       </div>
     </section>
