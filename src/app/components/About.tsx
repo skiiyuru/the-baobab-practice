@@ -111,7 +111,7 @@ export function About() {
                     <div className="absolute -right-4 -bottom-10 text-[10rem] font-headline text-brand-clay opacity-5 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none select-none">
                       ?
                     </div>
-                    <p className="text-2xl lg:text-3xl font-headline text-foreground leading-snug relative z-10" style={{ maxWidth: '24ch' }}>
+                    <p className="text-xl lg:text-2xl font-headline text-foreground leading-snug relative z-10" style={{ maxWidth: '24ch' }}>
                       What if organizations could learn from the Baobab?
                     </p>
                   </div>
@@ -193,13 +193,13 @@ export function About() {
 
       {/* The Empty Center — dramatic full-width dark section with extra breathing room */}
       <div className="dark-section py-24 lg:py-36 bg-brand-earth text-white text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 border">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimateIn>
             <p
               className="text-display"
               style={{
                 color: 'white',
-                marginBottom: '5rem',
+                marginBottom: '3rem',
                 fontSize: 'clamp(1.75rem, 3.5vw + 0.5rem, 2.75rem)',
               }}
             >
@@ -209,7 +209,7 @@ export function About() {
 
           <AnimateIn delay={0.2}>
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: '3rem' }}>
-              <p className="" style={{ color: 'var(--warm-sand)' }}>
+              <p className="max-w-none text-lg" style={{ color: 'var(--warm-sand)' }}>
                 We chose this name as a living promise. <strong className="text-white font-semibold">Practice</strong> means growth through disciplined, mindful action. <strong className="text-white font-semibold">The Baobab</strong> means wisdom that lasts — deep growth that withstands centuries of change.
               </p>
             </div>
