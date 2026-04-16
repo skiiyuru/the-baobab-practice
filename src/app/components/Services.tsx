@@ -139,84 +139,19 @@ const distinctivePractices = [
 export function Services() {
   return (
     <section id="services" className="bg-brand-light">
-      {/* Our Promise — editorial statement with oversized typographic accent */}
-      <div className="py-16 lg:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimateIn>
-            <p
-              style={{
-                fontFamily: 'var(--font-headline)',
-                fontSize: 'clamp(1.6rem, 3vw + 0.5rem, 2.5rem)',
-                fontWeight: 700,
-                lineHeight: 1.25,
-                color: 'var(--foreground)',
-                maxWidth: '26ch',
-              }}
-            >
-              We will not just help you solve today's problem.
-            </p>
-          </AnimateIn>
-          {/* Oversized em dash — typographic breath */}
-          <AnimateIn delay={0.1} variant="fade-in">
-            <div className="my-6 lg:my-8">
-              <span
-                aria-hidden="true"
-                style={{
-                  fontFamily: 'var(--font-headline)',
-                  fontSize: 'clamp(3rem, 5vw, 5rem)',
-                  fontWeight: 200,
-                  lineHeight: 0.5,
-                  color: 'var(--resilience-clay)',
-                  opacity: 0.35,
-                  display: 'block',
-                  userSelect: 'none',
-                }}
-              >
-                —
-              </span>
-            </div>
-          </AnimateIn>
-          <AnimateIn delay={0.2}>
-            <p
-              style={{
-                fontFamily: 'var(--font-headline)',
-                fontSize: 'clamp(1.6rem, 3vw + 0.5rem, 2.5rem)',
-                fontWeight: 400,
-                fontStyle: 'italic',
-                lineHeight: 1.25,
-                color: 'var(--growth-green)',
-                maxWidth: '32ch',
-              }}
-            >
-              We will help you build the capacity to solve tomorrow's unknown challenges.
-            </p>
-          </AnimateIn>
-        </div>
-      </div>
-
-      {/* Service Frameworks — expansive editorial row layout */}
       <div className="py-24 lg:py-32 bg-white relative overflow-hidden">
-        {/* Ambient background decoration */}
-        <motion.div 
-          className="absolute right-0 top-0 w-1/2 md:w-1/3 aspect-square rounded-full blur-3xl pointer-events-none"
-          style={{ backgroundColor: 'var(--resilience-clay)', opacity: 0.08 }}
-          animate={{ x: [0, -40, 0], y: [0, 50, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        />
-        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 lg:mb-24">
-            <AnimateIn>
-              <h2 className="text-foreground text-5xl lg:text-6xl max-w-xl leading-tight tracking-tight mb-0">
-                Architectures <br/>
-                <span className="font-serif italic font-normal text-4xl lg:text-5xl" style={{ color: 'var(--growth-green)' }}>for change</span>
-              </h2>
-            </AnimateIn>
-            <AnimateIn delay={0.1}>
-              <p className="text-lg text-muted-foreground max-w-sm lg:text-right border-l-2 lg:border-l-0 lg:border-r-2 border-brand-green/30 pl-4 lg:pl-0 lg:pr-4 m-0">
-                We approach complex challenges through five foundational lenses. Not as rigid blueprints, but as adaptive starting points.
-              </p>
-            </AnimateIn>
+          <div className='mb-16'>
+          <AnimateIn>
+            <h2 className="text-4xl lg:text-5xl font-headline text-foreground leading-tight tracking-tight  mb-4 text-center">
+              Architectures for <span className="font-serif italic font-normal text-brand-green">Change</span>
+            </h2> 
+          </AnimateIn>
+          <AnimateIn delay={0.1}>
+            <p className="text-lg text-muted-foreground max-w-xl text-center mx-auto">
+            We will not just help you solve today's problem. We will help you build the capacity to solve tomorrow's unknown challenges.
+            </p>
+          </AnimateIn>
           </div>
 
           <div className="w-full">
@@ -302,16 +237,16 @@ export function Services() {
             {/* Image */}
             <div className="w-full lg:w-1/2">
               <AnimateIn variant="fade-up" duration={0.8}>
-                 <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-sm">
+                 <div className="rounded-2xl overflow-hidden shadow-sm">
                    <motion.div
                      whileHover={{ scale: 1.03 }}
                      transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-                     className="w-full h-full"
+                     className="size-full"
                    >
                      <ImageWithFallback
                        src={journeyImg}
                        alt="The Gathering Canopy - Collective strength through connection"
-                       className="w-full h-full object-cover"
+                       className="size-full object-cover"
                      />
                    </motion.div>
                  </div>
@@ -333,9 +268,7 @@ export function Services() {
                  <div className="pl-6 border-l-[3px] w-full max-w-lg border-brand-green/30">
                    <p className="text-lg font-medium text-foreground leading-relaxed mb-1">
                      No blueprints. No presets.<br />
-                     Your path, your pace.
-                   </p>
-                   <p className="font-serif italic text-2xl text-brand-clay m-0 mt-2">
+                     Your path, your pace.<br />
                      Your change. Made to last.
                    </p>
                  </div>
@@ -506,9 +439,9 @@ export function Services() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20 md:mb-32">
             <AnimateIn>
-              <h2 className="text-5xl lg:text-7xl xl:text-[6rem] leading-[0.95] tracking-tight m-0" style={{ color: 'white' }}>
-                A shift in <br />
-                <span className="font-serif italic font-normal" style={{ color: 'var(--growth-green)' }}>practice.</span>
+              <h2 className="text-4xl lg:text-5xl font-headline text-foreground leading-tight tracking-tight" style={{ color: 'white' }}>
+                What makes us <br />
+                <span className="font-serif italic font-normal" style={{ color: 'var(--growth-green)' }}>different.</span>
               </h2>
             </AnimateIn>
             <AnimateIn delay={0.1}>
@@ -661,7 +594,7 @@ export function Services() {
              {/* Right - The grounded action */}
              <div className="w-full md:w-1/2 lg:w-2/5 pt-2 md:pt-4">
                 <AnimateIn delay={0.1}>
-                  <p className="text-lg lg:text-xl leading-relaxed mb-10 m-0" style={{ color: 'var(--resilience-clay)' }}>
+                  <p className="text-lg lg:text-xl leading-relaxed mb-10 m-0" style={{ color: 'var(--warm-sand)' }}>
                     Let's break the cycle of traditional consulting and begin building sustainable, living adaptation for your organization.
                   </p>
                 </AnimateIn>

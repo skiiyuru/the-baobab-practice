@@ -193,14 +193,13 @@ export function About() {
 
       {/* The Empty Center — dramatic full-width dark section with extra breathing room */}
       <div className="dark-section py-24 lg:py-36 bg-brand-earth text-white text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 border">
           <AnimateIn>
             <p
               className="text-display"
               style={{
                 color: 'white',
                 marginBottom: '5rem',
-                // maxWidth: '28ch',
                 fontSize: 'clamp(1.75rem, 3.5vw + 0.5rem, 2.75rem)',
               }}
             >
@@ -210,7 +209,7 @@ export function About() {
 
           <AnimateIn delay={0.2}>
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: '3rem' }}>
-              <p className="text-base leading-relaxed" style={{ color: 'var(--warm-sand)' }}>
+              <p className="" style={{ color: 'var(--warm-sand)' }}>
                 We chose this name as a living promise. <strong className="text-white font-semibold">Practice</strong> means growth through disciplined, mindful action. <strong className="text-white font-semibold">The Baobab</strong> means wisdom that lasts — deep growth that withstands centuries of change.
               </p>
             </div>
@@ -219,22 +218,20 @@ export function About() {
       </div>
 
       {/* Core Values — Asymmetric Bento Box Grid */}
-      <div className="py-20 lg:py-32 bg-brand-light">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-20 lg:py-32 bg-brand-light relative overflow-hidden">
+        {/* Adds a soft glowing orb in background for delight */}
+        <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-brand-clay/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <AnimateIn variant="fade-up">
-            <h2 className="text-center text-4xl lg:text-5xl font-headline font-semibold text-foreground tracking-tight mb-12 lg:mb-16">
-                What we <span className=" font-serif italic font-normal text-brand-green">Practice</span>
-            </h2>
+             <h2 className="text-4xl lg:text-5xl font-headline text-foreground leading-tight tracking-tight  mb-16 lg:mb-20 text-center">
+                What we <span className="font-serif italic font-normal text-brand-green">Practice</span>
+            </h2> 
           </AnimateIn>
 
-          <AnimateIn>
-              <h2 className="text-4xl lg:text-6xl font-headline text-foreground tracking-tight mb-4">
-              </h2>
-            </AnimateIn>
-
           <div
-            className="grid md:grid-cols-3 gap-px rounded-[2rem] overflow-hidden shadow-sm"
+            className="grid grid-cols-1 md:grid-cols-3 gap-px rounded-[2.5rem] overflow-hidden shadow-sm border border-border"
             style={{ backgroundColor: 'var(--border)' }}
           >
             {coreValues.map((value, index) => {
@@ -254,25 +251,72 @@ export function About() {
 
               return (
                 <div key={index} className={getGridClass(index)}>
-                  <AnimateIn delay={index * 0.06} variant="fade-in" style={{ height: '100%' }}>
+                  <AnimateIn delay={index * 0.08} variant="fade-in" style={{ height: '100%' }}>
                     <motion.div
-                      className="p-8 lg:p-12 bg-white h-full relative group cursor-default flex flex-col"
-                      whileHover={{ backgroundColor: 'oklch(0.97 0.01 65 / 0.8)' }}
-                      transition={{ duration: 0.3 }}
+                      className="p-8 lg:p-12 bg-white h-full relative group cursor-default flex flex-col overflow-hidden"
+                      initial="initial"
+                      whileHover="hover"
+                      animate="initial"
+                      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                     >
-                      {/* Delight: Soft numeric watermark */}
-                      <div className="absolute top-6 right-6 lg:top-8 lg:right-10 text-6xl lg:text-[6.5rem] font-headline font-light leading-none text-brand-clay/5 group-hover:text-brand-green/10 transition-colors duration-500 select-none pointer-events-none">
-                        0{index + 1}
-                      </div>
+                      {/* Morphing background layer */}
+                      <motion.div 
+                        className="absolute inset-0 bg-[oklch(0.97_0.01_65)] opacity-0 pointer-events-none mix-blend-multiply"
+                        variants={{ hover: { opacity: 0.8 } }}
+                        transition={{ duration: 0.6 }}
+                      />
 
-                      <div className="relative z-10 flex flex-col h-full justify-between gap-6 lg:gap-10">
-                        <h4 className={`font-headline font-semibold text-foreground tracking-tight m-0 ${isLargeText ? 'text-3xl lg:text-4xl pr-12 lg:pr-24' : 'text-2xl lg:text-3xl pr-12'}`}>
-                          {value.name}
-                        </h4>
+                      {/* Accent pattern (abstract shapes) fading in */}
+                      {index === 0 && (
+                        <motion.div 
+                          className="absolute -left-12 -top-12 w-48 h-48 bg-brand-clay/5 rounded-full pointer-events-none"
+                          variants={{ hover: { scale: 1.5, opacity: 0.6 } }}
+                          transition={{ duration: 0.8, ease: "easeOut" }}
+                        />
+                      )}
+                      
+                      {index === 4 && (
+                        <motion.div 
+                          className="absolute right-0 bottom-0 w-64 h-64 bg-brand-green/5 rounded-tl-[100px] pointer-events-none"
+                          variants={{ hover: { scale: 1.2, opacity: 0.8 } }}
+                          transition={{ duration: 0.8, ease: "easeOut" }}
+                        />
+                      )}
+
+                      {/* Delight: Soft numeric watermark */}
+                      <motion.div 
+                        className="absolute top-6 right-6 lg:top-8 lg:right-10 text-[5rem] lg:text-[7rem] font-headline font-light leading-none select-none pointer-events-none opacity-5 group-hover:opacity-10 text-brand-clay group-hover:text-brand-green transition-colors duration-500"
+                        variants={{ 
+                          initial: { x: 0, y: 0, scale: 1 },
+                          hover: { x: -8, y: 8, scale: 1.05 }
+                        }}
+                        transition={{ duration: 0.5, ease: 'easeOut' }}
+                      >
+                        0{index + 1}
+                      </motion.div>
+
+                      <div className="relative z-10 flex flex-col h-full justify-between gap-8 lg:gap-12">
+                        <div>
+                          {/* Animated line decorator */}
+                          <motion.div
+                            className="h-1 w-8 bg-brand-clay/30 rounded-full mb-6"
+                            variants={{ hover: { width: 48, backgroundColor: 'var(--brand-green)' } }}
+                            transition={{ duration: 0.4 }}
+                          />
+                          <motion.h4 
+                            className={`font-headline font-semibold text-foreground tracking-tight m-0 ${isLargeText ? 'text-3xl lg:text-4xl pr-12 lg:pr-24' : 'text-2xl lg:text-3xl pr-12'}`}
+                            variants={{ hover: { x: 4 } }}
+                            transition={{ duration: 0.4 }}
+                          >
+                            {value.name}
+                          </motion.h4>
+                        </div>
                         
-                        <p className={`text-muted-foreground leading-relaxed m-0 ${isLargeText ? 'text-lg lg:text-xl max-w-2xl' : 'text-base lg:text-lg'}`}>
-                          {value.description}
-                        </p>
+                        <div className="flex items-end justify-between gap-4">
+                          <p className={`text-muted-foreground leading-relaxed m-0 ${isLargeText ? 'text-lg lg:text-xl max-w-2xl' : 'text-base lg:text-lg'}`}>
+                            {value.description}
+                          </p>
+                        </div>
                       </div>
                     </motion.div>
                   </AnimateIn>

@@ -136,7 +136,7 @@ export function Hero() {
             </motion.div>
             <button
               onClick={scrollToAbout}
-              className="text-white/80 hover:text-white text-sm font-medium transition-colors flex items-center gap-1.5"
+              className="text-white/80 hover:text-white font-medium transition-colors flex items-center gap-1.5"
               style={{ transitionDuration: 'var(--duration-fast)' }}
             >
               Learn about our approach
