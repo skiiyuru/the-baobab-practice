@@ -51,7 +51,7 @@ export function Founder() {
             {/* Chapter 1 — Background & realization */}
               <AnimateIn delay={0.1}>
                 <p className=" lg:text-md leading-relaxed text-muted-foreground" style={{ maxWidth: '54ch' }}>
-                  I have spent over two decades working with organizations across Africa in moments of change — when the path forward is not clear and what worked before no longer works.
+                  I have spent over two decades working with organizations across Africa in moments of change, when the path forward is not clear and what worked before no longer works.
                 </p>
               </AnimateIn>
               <AnimateIn delay={0.2}>
@@ -87,7 +87,7 @@ export function Founder() {
               <AnimateIn delay={0.45}>
                 <p className=" lg:text-md leading-relaxed text-muted-foreground" style={{ maxWidth: '54ch' }}>
                   My experience spans global technology and international development, including leadership roles at Microsoft and BroadReach Group.
-                  Across these experiences, what has mattered most to me is not just the outcomes, but how people and institutions move through change — with greater clarity, confidence, and connection.
+                  Across these experiences, what has mattered most to me is not just the outcomes, but how people and institutions move through change with greater clarity, confidence, and connection.
                 </p>
               </AnimateIn>
           </div>

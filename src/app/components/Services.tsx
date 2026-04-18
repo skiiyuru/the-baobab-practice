@@ -108,14 +108,14 @@ const distinctivePractices = [
     icon: Scale,
     numeral: '01',
     title: 'The "Both/And" Method',
-    description: 'Balance competing values — stability & agility, performance & well-being, individual & collective success, legacy & innovation.',
+    description: 'Balance competing values, stability & agility, performance & well-being, individual & collective success, legacy & innovation.',
     iconColor: 'text-brand-clay',
   },
   {
     icon: Flame,
     numeral: '02',
     title: 'Heat Regulation',
-    description: 'Manage the "productive heat" of change — avoid complacency and burnout, foster engagement and creativity.',
+    description: 'Manage the "productive heat" of change, avoid complacency and burnout, foster engagement and creativity.',
     iconColor: 'text-brand-green',
   },
   {
@@ -235,7 +235,7 @@ export function Services() {
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
             
             {/* Image */}
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-7/12">
               <AnimateIn variant="fade-up" duration={0.8}>
                  <div className="rounded-2xl overflow-hidden shadow-sm">
                    <motion.div
@@ -254,7 +254,7 @@ export function Services() {
             </div>
             
             {/* Typography */}
-            <div className="w-full lg:w-1/2 lg:pl-8">
+            <div className="w-full lg:w-5/12 lg:pl-8">
                <AnimateIn delay={0.2} variant="fade-up">
                  <h3 className="text-4xl lg:text-5xl lg:leading-[1.1] font-headline tracking-tighter text-foreground mb-8">
                    Your Journey.<br />
@@ -280,20 +280,20 @@ export function Services() {
       </div>
 
       {/* The Baobab Growth Cycle — Asymmetric Editorial Timeline */}
-      <div className="py-24 lg:py-36 bg-brand-light relative overflow-hidden">
+      <div className="py-24 lg:py-36 bg-brand-light relative">
         {/* Subtle top border texture linking it to the previous section */}
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-clay/20 to-transparent" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+          <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
              {/* Left - Sticky Intro */}
-             <div className="lg:w-1/3">
-               <div className="lg:sticky lg:top-32">
+             <div className="lg:col-span-4 lg:sticky lg:top-32">
+               <div>
                   <AnimateIn>
                     <p className="text-xs tracking-[0.2em] uppercase font-semibold text-brand-green/80 flex items-center gap-4 mb-4">
-                      <span className="w-8 h-[2px] bg-brand-green/80"></span>
-                      Our Process
+                       <span className="w-8 h-[2px] bg-brand-green/80"></span>
+                       Our Process
                     </p>
                     <h3 className="text-4xl lg:text-6xl font-headline tracking-tight text-foreground mb-6 leading-[1.1]">
                       The Baobab<br/>Growth Cycle™
@@ -308,7 +308,7 @@ export function Services() {
              </div>
 
              {/* Right - The Immersive Timeline */}
-             <div className="lg:w-2/3 relative">
+             <div className="lg:col-span-8 relative">
                 <div className="flex flex-col relative">
                   {/* Desktop Connecting Line Tracker */}
                   <div className="hidden md:block absolute left-[39px] lg:left-[47px] top-[40px] bottom-[100px] w-[2px] bg-brand-clay/10 z-0" />
@@ -445,7 +445,7 @@ export function Services() {
               </h2>
             </AnimateIn>
             <AnimateIn delay={0.1}>
-              <p className="text-lg md:text-xl max-w-sm m-0 md:text-right font-medium" style={{ color: 'var(--warm-sand)' }}>
+              <p className="text-lg md:text-xl max-w-md m-0 md:text-right font-medium" style={{ color: 'var(--warm-sand)' }}>
                 Traditional consulting focuses on static adoption. We focus on sustainable, living adaptation.
               </p>
             </AnimateIn>
@@ -468,7 +468,7 @@ export function Services() {
                  >
                    {/* Traditional Approach (Faded + Crossed out) */}
                    <div className="w-full md:w-[45%] pr-8 mb-4 md:mb-0">
-                     <p className="text-[0.65rem] uppercase tracking-[0.2em] text-white/30 mb-3 font-semibold">Instead of</p>
+                     <p className="text-md uppercase tracking-[0.2em] text-white/30 mb-3 font-semibold">Instead of</p>
                      <p className="text-2xl md:text-3xl font-medium text-white/30 line-through decoration-white/20 m-0">
                        {traditional}
                      </p>
@@ -492,7 +492,7 @@ export function Services() {
 
                    {/* The Baobab Framework (Bold + Highlighted) */}
                    <div className="w-full md:w-[45%] md:pl-8 mt-2 md:mt-0">
-                     <p className="text-[0.65rem] uppercase tracking-[0.2em] mb-3 font-semibold group-hover:text-brand-green/80 text-brand-green/40 transition-colors">We believe in</p>
+                     <p className="text-md uppercase tracking-[0.2em] mb-3 font-semibold group-hover:text-brand-green/80 text-brand-green/40 transition-colors">We believe in</p>
                      <motion.p 
                        variants={{
                          idle: { x: 0 },

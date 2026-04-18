@@ -71,23 +71,8 @@ export function Hero() {
               textShadow: '0 2px 20px oklch(0.15 0.04 55 / 0.3)',
             }}
           >
-            The Baobab Practice - Human&thinsp;·&thinsp;Led Change
+            The Baobab Practice <br /> Human&thinsp;·&thinsp;Led Change
           </motion.h1>
-
-          {/* Lead paragraph — slightly larger, sets the tone */}
-          <motion.p
-            variants={fadeUp}
-            className="text-white mb-5"
-            style={{
-              fontSize: 'clamp(1.1rem, 1.5vw + 0.5rem, 1.35rem)',
-              lineHeight: 1.6,
-              fontWeight: 400,
-              maxWidth: '52ch',
-            }}
-          >
-            The Baobab stands for wisdom that endures — deep roots, patient strength, and the
-            ability to withstand generations of change.
-          </motion.p>
 
           {/* Body — main descriptive paragraph */}
           <motion.p
@@ -100,7 +85,7 @@ export function Hero() {
               maxWidth: '52ch',
             }}
           >
-            We help organizations move through transitions with care, clarity, and confidence —
+            We help organizations move through transitions with care, clarity and confidence
             by trusting people to shape the change they will carry forward.
           </motion.p>
 
