@@ -388,16 +388,19 @@ export function Services() {
                                    <div className="flex flex-col xl:flex-row gap-8 lg:gap-12 mt-8 border-t border-black/5 pt-8">
                                       <div className="flex-1">
                                         <p className="text-xs uppercase tracking-[0.15em] font-bold text-foreground/40 mb-5 m-0">
-                                          Key Activity
+                                          Deliverables
                                         </p>
-                                        <ul className="space-y-4 m-0 p-0 list-none">
+                                         <p className="text-base font-semibold text-foreground leading-snug m-0">
+                                              {phase.deliverable}
+                                            </p>
+                                        {/* <ul className="space-y-4 m-0 p-0 list-none">
                                            {phase.activities.slice(0, 1).map((act, i) => (
                                              <li key={i} className="flex items-start gap-4 text-base text-foreground/80 leading-relaxed">
                                                <span className="mt-[0.6rem] w-1.5 h-1.5 rounded-full bg-brand-green/80 shrink-0" />
                                                <span>{act}</span>
                                              </li>
                                            ))}
-                                        </ul>
+                                        </ul> */}
                                       </div>
 
                                       {/* <div className="xl:w-1/3">
