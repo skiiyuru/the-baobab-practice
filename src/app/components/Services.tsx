@@ -329,9 +329,9 @@ export function Services() {
                                   <h4 className="text-xl font-headline font-semibold text-foreground m-0">
                                     {phase.title}
                                   </h4>
-                                  <span className="text-[0.65rem] font-bold tracking-widest uppercase text-brand-green bg-brand-green/10 px-2 py-1 rounded-full w-fit block mt-1">
+                                  {/* <span className="text-[0.65rem] font-bold tracking-widest uppercase text-brand-green bg-brand-green/10 px-2 py-1 rounded-full w-fit block mt-1">
                                     {phase.duration}
-                                  </span>
+                                  </span> */}
                                </div>
                           </div>
 
@@ -360,9 +360,9 @@ export function Services() {
                                       <h4 className="text-2xl lg:text-3xl font-headline font-semibold tracking-wide text-foreground m-0">
                                         {phase.title}
                                       </h4>
-                                      <span className="text-xs font-bold tracking-widest uppercase text-brand-green bg-brand-green/10 px-3 py-1.5 rounded-full tabular-nums w-fit">
+                                      {/* <span className="text-xs font-bold tracking-widest uppercase text-brand-green bg-brand-green/10 px-3 py-1.5 rounded-full tabular-nums w-fit">
                                         {phase.duration}
-                                      </span>
+                                      </span> */}
                                   </motion.div>
                                   <p className="text-xl lg:text-2xl font-serif italic text-muted-foreground m-0">
                                     {phase.subtitle}
@@ -386,13 +386,12 @@ export function Services() {
                                    </p>
 
                                    <div className="flex flex-col xl:flex-row gap-8 lg:gap-12 mt-8 border-t border-black/5 pt-8">
-                                      {/* Activities List */}
                                       <div className="flex-1">
                                         <p className="text-xs uppercase tracking-[0.15em] font-bold text-foreground/40 mb-5 m-0">
-                                          Key Activities
+                                          Key Activity
                                         </p>
                                         <ul className="space-y-4 m-0 p-0 list-none">
-                                           {phase.activities.map((act, i) => (
+                                           {phase.activities.slice(0, 1).map((act, i) => (
                                              <li key={i} className="flex items-start gap-4 text-base text-foreground/80 leading-relaxed">
                                                <span className="mt-[0.6rem] w-1.5 h-1.5 rounded-full bg-brand-green/80 shrink-0" />
                                                <span>{act}</span>
@@ -401,8 +400,7 @@ export function Services() {
                                         </ul>
                                       </div>
 
-                                      {/* Deliverable Block */}
-                                      <div className="xl:w-1/3">
+                                      {/* <div className="xl:w-1/3">
                                          <div className="bg-white/80 p-6 rounded-xl border border-black/5 h-full flex flex-col justify-center">
                                             <p className="text-xs uppercase tracking-[0.15em] font-bold text-foreground/40 mb-3 m-0">
                                               Deliverable
@@ -411,7 +409,7 @@ export function Services() {
                                               {phase.deliverable}
                                             </p>
                                          </div>
-                                      </div>
+                                      </div> */}
                                    </div>
                                 </motion.div>
                                 
