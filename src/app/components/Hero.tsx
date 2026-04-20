@@ -65,14 +65,25 @@ export function Hero() {
           {/* h1 — fluid scale from base styles */}
           <motion.h1
             variants={fadeUp}
+            className="text-white"
+            style={{
+              maxWidth: '18ch',
+              textShadow: '0 2px 20px oklch(0.15 0.04 55 / 0.3)',
+            }}
+          >
+            The Baobab Practice
+          </motion.h1>
+
+          <motion.h2
+            variants={fadeUp}
             className="text-white mb-12"
             style={{
               maxWidth: '18ch',
               textShadow: '0 2px 20px oklch(0.15 0.04 55 / 0.3)',
             }}
           >
-            The Baobab Practice <br /> Human&thinsp;·&thinsp;Led Change
-          </motion.h1>
+            Human&thinsp;·&thinsp;Led Change
+          </motion.h2>
 
           {/* Body — main descriptive paragraph */}
           <motion.p
