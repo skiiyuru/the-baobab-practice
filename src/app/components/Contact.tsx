@@ -7,34 +7,49 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { toast } from 'sonner';
-import { HELLO_EMAIL, PHONE } from '@/constants';
+import { HELLO_EMAIL, HOURS, LOCATION, PHONE } from '@/constants';
 
 const contactDetails = [
-  { icon: Phone, text: PHONE, color: 'text-brand-green' },
-  { icon: Mail, text: HELLO_EMAIL, color: 'text-brand-clay' },
-  { icon: MapPin, text: 'Nairobi, Kenya', color: 'text-foreground' },
-  { icon: Clock, text: 'Mon – Fri, 9 AM – 6 PM', color: 'text-brand-green' },
+  { icon: Phone, label: 'Phone', text: PHONE, href: `tel:${PHONE.replace(/\s/g, '')}`, color: 'text-brand-green' },
+  { icon: Mail, label: 'Email', text: HELLO_EMAIL, href: `mailto:${HELLO_EMAIL}`, color: 'text-brand-clay' },
+  { icon: MapPin, label: 'Location', text: LOCATION, color: 'text-foreground' },
+  { icon: Clock, label: 'Hours', text: HOURS, color: 'text-brand-green' },
 ];
+
+// Must match the hidden form Netlify detects at deploy time in index.html.
+const FORM_NAME = 'contact';
+
+const encode = (data: Record<string, string>) =>
+  new URLSearchParams(data).toString();
 
 export function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     message: '',
   });
+  const [botField, setBotField] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate network delay for feedback
-    await new Promise(resolve => setTimeout(resolve, 600));
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': FORM_NAME, 'bot-field': botField, ...formData }),
+      });
+      if (!response.ok) throw new Error(`Form submission failed: ${response.status}`);
 
-    toast.success('Thank you for your message! We will get back to you soon.');
-    setFormData({ name: '', email: '', phone: '', message: '' });
-    setIsSubmitting(false);
+      toast.success('Thank you for your message! We will get back to you soon.');
+      setFormData({ name: '', email: '', message: '' });
+    } catch {
+      toast.error(`Sorry, your message could not be sent. Please email us at ${HELLO_EMAIL}.`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -56,7 +71,7 @@ export function Contact() {
               Let's <span className="font-serif italic font-normal text-brand-green">Talk</span>
             </h2>
             <p className="text-xl lg:text-2xl font-serif italic text-muted-foreground" style={{ maxWidth: '36ch' }}>
-              Every transformation begins with a conversation.
+              Every transformation begins with a conversation
             </p>
           </div>
         </AnimateIn>
@@ -67,7 +82,7 @@ export function Contact() {
           <div className="lg:col-span-5 space-y-10 lg:pr-8">
             <AnimateIn delay={0.1}>
               <p className="text-lg lg:text-xl leading-relaxed text-muted-foreground" style={{ maxWidth: '32ch' }}>
-                We are based in Nairobi and work across Africa. Every conversation starts simply.
+                We are based in Nairobi and work across Africa. Reach out, and let’s begin.
               </p>
             </AnimateIn>
             
@@ -88,7 +103,16 @@ export function Contact() {
                       >
                         <Icon className={`size-5 relative z-10 ${detail.color}`} strokeWidth={1.5} />
                       </motion.div>
-                      <span className="text-lg text-foreground font-medium tracking-wide tabular-nums">{detail.text}</span>
+                      <div>
+                        <span className="block text-xs uppercase tracking-wider font-semibold text-muted-foreground">{detail.label}</span>
+                        {detail.href ? (
+                          <a href={detail.href} className="text-lg text-foreground font-medium tracking-wide tabular-nums hover:text-brand-clay transition-colors">
+                            {detail.text}
+                          </a>
+                        ) : (
+                          <span className="text-lg text-foreground font-medium tracking-wide tabular-nums">{detail.text}</span>
+                        )}
+                      </div>
                     </motion.div>
                   </AnimateIn>
                 );
@@ -107,10 +131,23 @@ export function Contact() {
                 {/* Form Background pattern */}
                 <div className="absolute top-0 right-0 w-80 h-80 bg-brand-green/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 
-                <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
+                <form
+                  name={FORM_NAME}
+                  method="POST"
+                  data-netlify="true"
+                  netlify-honeypot="bot-field"
+                  onSubmit={handleSubmit}
+                  className="space-y-8 relative z-10"
+                >
+                  <input type="hidden" name="form-name" value={FORM_NAME} />
+                  <p className="hidden">
+                    <label>
+                      Don’t fill this out: <input name="bot-field" value={botField} onChange={e => setBotField(e.target.value)} />
+                    </label>
+                  </p>
                   <div className="grid sm:grid-cols-2 gap-8">
                     <div className="space-y-3">
-                      <Label htmlFor="name" className="text-foreground text-xs uppercase tracking-wider font-semibold">Name</Label>
+                      <Label htmlFor="name" className="text-foreground text-xs uppercase tracking-wider font-semibold">Your name</Label>
                       <Input
                         id="name"
                         name="name"
@@ -137,20 +174,7 @@ export function Contact() {
                   </div>
 
                   <div className="space-y-3">
-                    <Label htmlFor="phone" className="text-foreground text-xs uppercase tracking-wider font-semibold">Phone <span className="text-muted-foreground/50 font-normal lowercase tracking-normal">(optional)</span></Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="+254 ..."
-                      className="bg-brand-light/50 border-transparent focus:border-brand-green/30 focus:bg-white h-14 text-base px-5 rounded-lg transition-all duration-300 shadow-none hover:bg-brand-light"
-                    />
-                  </div>
-
-                  <div className="space-y-3">
-                    <Label htmlFor="message" className="text-foreground text-xs uppercase tracking-wider font-semibold">Message</Label>
+                    <Label htmlFor="message" className="text-foreground text-xs uppercase tracking-wider font-semibold">How can we help?</Label>
                     <Textarea
                       id="message"
                       name="message"
@@ -158,7 +182,7 @@ export function Contact() {
                       onChange={handleChange}
                       placeholder="Tell us about your organization and the change you are navigating..."
                       rows={5}
-                      className="bg-brand-light/50 border-transparent focus:border-brand-green/30 focus:bg-white text-base p-5 rounded-lg transition-all duration-300 resize-none shadow-none hover:bg-brand-light"
+                      className="min-h-36 bg-brand-light/50 border-transparent focus:border-brand-green/30 focus:bg-white text-base p-5 rounded-lg transition-all duration-300 resize-none shadow-none hover:bg-brand-light"
                       required
                     />
                   </div>

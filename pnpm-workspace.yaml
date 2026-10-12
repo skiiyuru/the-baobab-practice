@@ -1,0 +1,10 @@
+# pnpm 11+ only runs dependency build scripts that are explicitly allowed,
+# and reads overrides from here instead of package.json.
+allowBuilds:
+  '@tailwindcss/oxide': true
+  esbuild: true
+
+overrides:
+  vite: 6.3.5
+  '@types/react': ^18
+  '@types/react-dom': ^18

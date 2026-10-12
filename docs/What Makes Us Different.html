@@ -1,0 +1,167 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>What Makes Us Different (Copy)</title>
+<style>
+  /* Layout: centered editorial column — thesis, a paired "instead of / we believe in"
+     contrast list, then the four distinctive practices as cards. */
+  :root{
+    --bg:#F3EEE6;
+    --surface:#FBF8F3;
+    --recess:#EDE5D8;
+    --ink:#3C2C1E;
+    --body:#55473A;
+    --muted:#8A7A69;
+    --line:#E3D7C6;
+    --clay:#BC5F32;
+    --green:#5F7A5D;
+    --sand:#E7D9C8;
+    --gold:#C99A52;
+    --shadow:28 20 12;
+    --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#20180F;--surface:#2A2015;--recess:#241B12;--ink:#F3E9DB;--body:#D8CBBA;
+      --muted:#A2917E;--line:#3E3121;--clay:#DB8253;--green:#92AC8F;--sand:#3A2D1E;
+      --gold:#D7AE6A;--shadow:0 0 0;color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#20180F;--surface:#2A2015;--recess:#241B12;--ink:#F3E9DB;--body:#D8CBBA;
+    --muted:#A2917E;--line:#3E3121;--clay:#DB8253;--green:#92AC8F;--sand:#3A2D1E;
+    --gold:#D7AE6A;--shadow:0 0 0;color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--body);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding-inline:20px;padding-block:clamp(48px,8vw,100px)}
+
+  /* ---------- HERO ---------- */
+  .hero{text-align:center;margin-bottom:clamp(48px,8vw,80px)}
+  .eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--clay);font-weight:600;margin-bottom:18px}
+  .hero h1{font-family:var(--serif);font-weight:500;color:var(--ink);font-size:clamp(2.4rem,6.5vw,4rem);line-height:1.03;margin:0;text-wrap:balance}
+  .hero h1 em{font-style:italic;color:var(--clay)}
+  .hero .lead{max-width:46ch;margin:24px auto 0;font-size:clamp(1.05rem,2.4vw,1.25rem);color:var(--body);line-height:1.6;text-wrap:pretty}
+  .hero .lead strong{color:var(--ink);font-weight:600}
+
+  /* ---------- CONTRAST ---------- */
+  .contrast{display:flex;flex-direction:column;gap:12px;margin-bottom:clamp(56px,9vw,96px)}
+  .chead{display:grid;grid-template-columns:1fr 54px 1fr;align-items:center;gap:0;margin-bottom:2px}
+  .chead span{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700}
+  .chead .l{color:var(--muted)}
+  .chead .r{color:var(--green);text-align:left}
+  .chead .mid{}
+  @media (max-width:620px){.chead{display:none}}
+
+  .row{
+    display:grid;grid-template-columns:1fr 54px 1fr;align-items:stretch;
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    background:var(--surface);
+    box-shadow:0 1px 2px rgb(var(--shadow) / .04);
+  }
+  .row .old{
+    background:var(--recess);color:var(--muted);
+    padding:18px 22px;display:flex;align-items:center;font-size:1rem;line-height:1.35;
+  }
+  .row .arrow{
+    display:flex;align-items:center;justify-content:center;color:var(--clay);
+    background:var(--recess);font-size:1.2rem;
+  }
+  .row .new{
+    padding:18px 22px;display:flex;align-items:center;gap:11px;
+    font-size:1.08rem;line-height:1.35;color:var(--ink);font-weight:600;
+    font-family:var(--serif);
+  }
+  .row .new .dot{flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:var(--green);margin-top:1px}
+  @media (max-width:620px){
+    .row{grid-template-columns:1fr}
+    .row .arrow{display:none}
+    .row .old{padding:14px 20px 10px}
+    .row .new{padding:10px 20px 16px}
+    .row .old,.row .new{justify-content:flex-start;text-align:left}
+  }
+
+  /* ---------- PRACTICES ---------- */
+  .pintro{text-align:center;max-width:46ch;margin:0 auto clamp(32px,5vw,48px)}
+  .pintro .label{display:inline-block;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:14px}
+  .pintro h2{font-family:var(--serif);font-weight:500;color:var(--ink);font-size:clamp(1.8rem,4.4vw,2.5rem);line-height:1.1;margin:0;text-wrap:balance}
+
+  .practices{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2.4vw,24px)}
+  @media (max-width:620px){.practices{grid-template-columns:1fr}}
+  .practice{
+    position:relative;background:var(--surface);border:1px solid var(--line);
+    border-radius:16px;padding:clamp(24px,3.2vw,34px);overflow:hidden;
+    box-shadow:0 1px 2px rgb(var(--shadow) / .05),0 10px 30px rgb(var(--shadow) / .05);
+  }
+  .practice::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--accent,var(--green))}
+  .practice[data-p="1"]{--accent:var(--green)}
+  .practice[data-p="2"]{--accent:var(--clay)}
+  .practice[data-p="3"]{--accent:var(--gold)}
+  .practice[data-p="4"]{--accent:#6E8158}
+  .practice h3{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:clamp(1.2rem,2.6vw,1.45rem);margin:0 0 12px;line-height:1.18;text-wrap:balance}
+  .practice p{margin:0;color:var(--body);font-size:.98rem;line-height:1.55}
+
+  .close{text-align:center;margin-top:clamp(44px,7vw,72px)}
+  .close .sig{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--clay);font-weight:600}
+  .close .sig span{color:var(--green)}
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Our Approach</p>
+    <h1>What makes us <em>different</em></h1>
+    <p class="lead">
+      Traditional consulting focuses on static adoption. We focus on
+      <strong>sustainable, living adaptation.</strong>
+    </p>
+  </header>
+
+  <section class="contrast" aria-label="How our approach differs">
+    <div class="chead">
+      <span class="l">Instead of</span>
+      <span class="mid"></span>
+      <span class="r">We believe in</span>
+    </div>
+
+    <div class="row"><div class="old">Planning, then implementing</div><div class="arrow">&rarr;</div><div class="new"><span class="dot"></span>Experimenting, then learning</div></div>
+    <div class="row"><div class="old">Managing resistance</div><div class="arrow">&rarr;</div><div class="new"><span class="dot"></span>Engaging resistance as data</div></div>
+    <div class="row"><div class="old">Focusing on adoption</div><div class="arrow">&rarr;</div><div class="new"><span class="dot"></span>Focusing on adaptation</div></div>
+    <div class="row"><div class="old">Creating dependency</div><div class="arrow">&rarr;</div><div class="new"><span class="dot"></span>Building internal capability</div></div>
+    <div class="row"><div class="old">Measuring compliance</div><div class="arrow">&rarr;</div><div class="new"><span class="dot"></span>Measuring learning and growth</div></div>
+    <div class="row"><div class="old">Linear project timelines</div><div class="arrow">&rarr;</div><div class="new"><span class="dot"></span>Cyclical, ongoing practice</div></div>
+  </section>
+
+  <section class="pintro">
+    <span class="label">Baobab Distinctive Practices</span>
+    <h2>Four practices that set the work apart</h2>
+  </section>
+
+  <section class="practices" aria-label="Baobab distinctive practices">
+    <article class="practice" data-p="1">
+      <h3>The &ldquo;Both/And&rdquo; Method</h3>
+      <p>Balance competing values: stability and agility, performance and well-being, individual and collective success, legacy and innovation.</p>
+    </article>
+    <article class="practice" data-p="2">
+      <h3>Heat Regulation</h3>
+      <p>Manage the &ldquo;productive heat&rdquo; of change. Avoid complacency and burnout, and keep engagement and creativity alive.</p>
+    </article>
+    <article class="practice" data-p="3">
+      <h3>Loss Acknowledgement Rituals</h3>
+      <p>Honor what is being left behind. Grieve endings, and create psychological safety for new beginnings.</p>
+    </article>
+    <article class="practice" data-p="4">
+      <h3>Good Enough for Now, Safe Enough to Try</h3>
+      <p>Encourage rapid prototyping, value learning over perfection, and treat failure as data.</p>
+    </article>
+  </section>
+
+  <footer class="close">
+    <p class="sig">The Baobab Practice &middot; <span>human.led change</span></p>
+  </footer>
+
+</div>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap">
+
+</body></html>

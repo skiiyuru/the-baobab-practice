@@ -64,8 +64,16 @@ export function Footer() {
                 Contact Info
               </h4>
               <ul className="space-y-2.5 text-secondary">
-                <li>{PHONE}</li>
-                <li>{HELLO_EMAIL}</li>
+                <li>
+                  <a href={`tel:${PHONE.replace(/\s/g, '')}`} className="hover:text-primary-foreground transition-colors">
+                    {PHONE}
+                  </a>
+                </li>
+                <li>
+                  <a href={`mailto:${HELLO_EMAIL}`} className="hover:text-primary-foreground transition-colors">
+                    {HELLO_EMAIL}
+                  </a>
+                </li>
                 <li>{POSTAL_ADDRESS}</li>
                 <li>{LOCATION}</li>
               </ul>

@@ -1,0 +1,211 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Our Services (Copy)</title>
+<style>
+  /* Layout: centered editorial column — the master framework (premise + growth gap +
+     four-stage journey), then the service hierarchy: one master methodology over four lenses. */
+  :root{
+    --bg:#F3EEE6;--surface:#FBF8F3;--recess:#EDE5D8;--ink:#3C2C1E;--body:#55473A;
+    --muted:#8A7A69;--line:#E3D7C6;--clay:#BC5F32;--green:#5F7A5D;--sand:#E7D9C8;
+    --gold:#C99A52;--shadow:28 20 12;
+    --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#20180F;--surface:#2A2015;--recess:#241B12;--ink:#F3E9DB;--body:#D8CBBA;
+      --muted:#A2917E;--line:#3E3121;--clay:#DB8253;--green:#92AC8F;--sand:#3A2D1E;
+      --gold:#D7AE6A;--shadow:0 0 0;color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#20180F;--surface:#2A2015;--recess:#241B12;--ink:#F3E9DB;--body:#D8CBBA;
+    --muted:#A2917E;--line:#3E3121;--clay:#DB8253;--green:#92AC8F;--sand:#3A2D1E;
+    --gold:#D7AE6A;--shadow:0 0 0;color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--body);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding-inline:20px;padding-block:clamp(48px,8vw,100px)}
+
+  .eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--clay);font-weight:600}
+  .seclabel{display:inline-block;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:14px}
+
+  /* ---------- HERO ---------- */
+  .hero{text-align:center;margin-bottom:clamp(40px,7vw,64px)}
+  .hero .eyebrow{display:block;margin-bottom:18px}
+  .hero h1{font-family:var(--serif);font-weight:500;color:var(--ink);font-size:clamp(2.2rem,5.6vw,3.6rem);line-height:1.05;margin:0}
+  .hero h1 .tm{font-size:.5em;vertical-align:super;color:var(--muted)}
+  .hero .sub{font-family:var(--serif);font-style:italic;color:var(--clay);font-size:clamp(1.3rem,3vw,1.7rem);margin:10px 0 0}
+  .hero .lead{max-width:56ch;margin:26px auto 0;font-size:clamp(1.02rem,2.3vw,1.18rem);color:var(--body);line-height:1.62;text-wrap:pretty}
+
+  /* ---------- GROWTH GAP ---------- */
+  .gap{
+    position:relative;background:var(--sand);border-radius:16px;
+    padding:clamp(22px,3.4vw,32px) clamp(24px,3.4vw,38px);
+    margin:0 auto clamp(48px,8vw,80px);max-width:820px;
+  }
+  .gap::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;border-radius:16px 0 0 16px;background:var(--clay)}
+  .gap .k{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);font-weight:700;margin-bottom:8px}
+  .gap p{margin:0;font-family:var(--serif);font-style:italic;color:var(--ink);font-size:clamp(1.1rem,2.5vw,1.35rem);line-height:1.4;text-wrap:balance}
+
+  /* ---------- JOURNEY ---------- */
+  .block-intro{text-align:center;max-width:52ch;margin:0 auto clamp(28px,4vw,40px)}
+  .block-intro h2{font-family:var(--serif);font-weight:500;color:var(--ink);font-size:clamp(1.8rem,4.2vw,2.5rem);line-height:1.1;margin:0}
+
+  .journey{display:flex;flex-direction:column;gap:14px;margin-bottom:clamp(56px,9vw,92px)}
+  .stage{
+    display:grid;grid-template-columns:minmax(200px,1.1fr) 1.4fr minmax(190px,1fr);
+    align-items:stretch;
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    box-shadow:0 1px 2px rgb(var(--shadow) / .04);
+  }
+  .stage::before{content:"";position:absolute}
+  .stage .ph{position:relative;padding:20px 22px;display:flex;flex-direction:column;gap:3px;background:var(--recess)}
+  .stage .ph::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--accent,var(--green))}
+  .stage[data-s="1"]{--accent:var(--green)}
+  .stage[data-s="2"]{--accent:#6E8158}
+  .stage[data-s="3"]{--accent:var(--gold)}
+  .stage[data-s="4"]{--accent:var(--clay)}
+  .stage .code{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+  .stage .name{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:1.08rem;line-height:1.2}
+  .stage .tree{font-family:var(--serif);font-style:italic;font-size:.9rem;color:var(--muted);margin-top:1px}
+  .stage .q{padding:20px 22px;display:flex;align-items:center;color:var(--body);font-size:.98rem;line-height:1.4;border-left:1px solid var(--line)}
+  .stage .m{padding:20px 22px;display:flex;align-items:center;border-left:1px solid var(--line)}
+  .stage .m span{font-size:.9rem;color:var(--ink);font-weight:500;line-height:1.35}
+  .stage .mk{display:block;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:5px}
+  @media (max-width:720px){
+    .stage{grid-template-columns:1fr}
+    .stage .q,.stage .m{border-left:0;border-top:1px solid var(--line)}
+  }
+
+  /* ---------- SERVICE HIERARCHY ---------- */
+  .master{
+    position:relative;background:var(--ink);color:#F3E9DB;border-radius:18px;overflow:hidden;
+    padding:clamp(28px,4vw,40px);text-align:center;margin-bottom:clamp(20px,3vw,28px);
+  }
+  :root[data-theme="dark"] .master,
+  :root:not([data-theme="light"]) .master{background:#160F08}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .master{background:#160F08}}
+  .master .tag{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .master h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.6rem,3.6vw,2.2rem);margin:12px 0 10px;color:#FBF8F3}
+  .master h3 .tm{font-size:.5em;vertical-align:super;opacity:.7}
+  .master p{margin:0 auto;max-width:48ch;color:#DCCCB8;font-size:1.02rem}
+
+  .connector{width:2px;height:clamp(22px,4vw,34px);background:var(--line);margin:0 auto clamp(20px,3vw,28px)}
+
+  .lenses{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2.2vw,22px)}
+  @media (max-width:620px){.lenses{grid-template-columns:1fr}}
+  .lens{
+    position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:clamp(22px,3vw,30px);overflow:hidden;
+    box-shadow:0 1px 2px rgb(var(--shadow) / .05);
+  }
+  .lens::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--accent)}
+  .lens[data-l="1"]{--accent:var(--green)}
+  .lens[data-l="2"]{--accent:var(--clay)}
+  .lens[data-l="3"]{--accent:var(--gold)}
+  .lens[data-l="4"]{--accent:#6E8158}
+  .lens .tag{font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .lens h4{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:clamp(1.15rem,2.5vw,1.35rem);margin:9px 0 9px;line-height:1.18}
+  .lens p{margin:0;color:var(--body);font-size:.96rem;line-height:1.5}
+
+  .close{text-align:center;margin-top:clamp(44px,7vw,72px)}
+  .close .sig{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--clay);font-weight:600}
+  .close .sig span{color:var(--green)}
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">Our Services</span>
+    <h1>The Baobab Scaling Framework<span class="tm">&trade;</span></h1>
+    <p class="sub">Growth Without Losing Soul</p>
+    <p class="lead">
+      A baobab grows from the inside out. Deep roots first, strong trunk second, branches
+      last. Sustainable organisational growth follows the same logic: strengthen the
+      conditions that allow growth before asking the organisation to carry more.
+    </p>
+  </header>
+
+  <section class="gap" aria-label="The Growth Gap">
+    <p class="k">The Growth Gap</p>
+    <p>A business can have a strong market opportunity and a clear growth strategy while the organisation behind it is not yet ready to carry that growth.</p>
+  </section>
+
+  <section class="block-intro">
+    <h2>A four-stage journey</h2>
+  </section>
+
+  <section class="journey" aria-label="The four-stage journey">
+
+    <article class="stage" data-s="1">
+      <div class="ph"><span class="code">Stage 01</span><span class="name">Assess Readiness &amp; Align Ambition</span><span class="tree">rooting the work</span></div>
+      <div class="q">Are we ready for the growth we want?</div>
+      <div class="m"><span><span class="mk">Measurement layer</span>Growth Readiness + Cultural Baseline</span></div>
+    </article>
+
+    <article class="stage" data-s="2">
+      <div class="ph"><span class="code">Stage 02</span><span class="name">Build Scalable Foundations</span><span class="tree">strengthening the trunk</span></div>
+      <div class="q">Are we building the capabilities and behaviours required to scale?</div>
+      <div class="m"><span><span class="mk">Measurement layer</span>Capability + Values Practice Tracker</span></div>
+    </article>
+
+    <article class="stage" data-s="3">
+      <div class="ph"><span class="code">Stage 03</span><span class="name">Scale &amp; Integrate</span><span class="tree">spreading the branches</span></div>
+      <div class="q">Is growth creating organisational or cultural friction?</div>
+      <div class="m"><span><span class="mk">Measurement layer</span>Growth Friction + System Alignment</span></div>
+    </article>
+
+    <article class="stage" data-s="4">
+      <div class="ph"><span class="code">Stage 04</span><span class="name">Sustain &amp; Evolve</span><span class="tree">tending the canopy</span></div>
+      <div class="q">Can we sustain growth while continuing to adapt?</div>
+      <div class="m"><span><span class="mk">Measurement layer</span>Scaling Sustainability + Cultural Embeddedness</span></div>
+    </article>
+
+  </section>
+
+  <section class="block-intro">
+    <span class="seclabel">How we work with you</span>
+    <h2>One master methodology, applied through specialist lenses</h2>
+  </section>
+
+  <div class="master">
+    <span class="tag">Master methodology</span>
+    <h3>The Baobab Scaling Framework<span class="tm">&trade;</span></h3>
+    <p>The primary journey for growth-stage organisations, from assessing readiness to sustaining growth.</p>
+  </div>
+
+  <div class="connector" aria-hidden="true"></div>
+
+  <section class="lenses" aria-label="Specialist lenses">
+    <article class="lens" data-l="1">
+      <span class="tag">Specialist lens</span>
+      <h4>Leadership &amp; Founder Transition</h4>
+      <p>Founder to leader: delegation, decision rights, leadership depth and succession.</p>
+    </article>
+    <article class="lens" data-l="2">
+      <span class="tag">Specialist lens</span>
+      <h4>Culture &amp; Identity</h4>
+      <p>Help culture evolve as the organisation grows, while protecting what matters.</p>
+    </article>
+    <article class="lens" data-l="3">
+      <span class="tag">Specialist lens</span>
+      <h4>Organisational Regrounding</h4>
+      <p>Address trust, ownership, collaboration and performance when growth creates friction.</p>
+    </article>
+    <article class="lens" data-l="4">
+      <span class="tag">Specialist lens</span>
+      <h4>Adaptive Change &amp; Crisis</h4>
+      <p>Support organisations when disruption or rapid change tests their ability to respond.</p>
+    </article>
+  </section>
+
+  <footer class="close">
+    <p class="sig">The Baobab Practice &middot; <span>human.led change</span></p>
+  </footer>
+
+</div>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap">
+
+</body></html>

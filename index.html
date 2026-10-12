@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary Meta Tags -->
-    <title>The Baobab Practice | Human-Led Organizational Transformation</title>
+    <title>The Baobab Practice | Human-Led Change for Growing Organisations</title>
     <meta
       name="title"
-      content="The Baobab Practice | Human-Led Organizational Transformation"
+      content="The Baobab Practice | Human-Led Change for Growing Organisations"
     />
     <meta
       name="description"
-      content="Partner with The Baobab Practice for human-led, practice-based coaching. We guide leaders and teams through complex organizational change with adaptive frameworks built on trust, resilience, and growth."
+      content="The Baobab Practice helps growth-stage entrepreneurs and leadership teams build the leadership, culture, capabilities, systems and ways of working needed to scale, without losing what makes the organisation matter."
     />
     <meta
       name="keywords"
-      content="organizational transformation, leadership coaching, change management, adaptive leadership, team coaching, organizational development, Nairobi Kenya, executive coaching"
+      content="organisational growth, scaling, growth readiness, organizational development, leadership coaching, culture, adaptive leadership, team coaching, organizational development, Nairobi Kenya, executive coaching"
     />
 
     <!-- Open Graph / Facebook -->
@@ -24,11 +24,11 @@
     <meta property="og:url" content="https://thebaobabpractice.com/" />
     <meta
       property="og:title"
-      content="The Baobab Practice | Human-Led Organizational Transformation"
+      content="The Baobab Practice | Human-Led Change for Growing Organisations"
     />
     <meta
       property="og:description"
-      content="Partner with The Baobab Practice for human-led, practice-based coaching. We guide leaders and teams through complex organizational change."
+      content="Helping growth-stage entrepreneurs and leadership teams build organisations that can carry their next stage of growth."
     />
     <meta
       property="og:image"
@@ -40,11 +40,11 @@
     <meta property="twitter:url" content="https://thebaobabpractice.com/" />
     <meta
       property="twitter:title"
-      content="The Baobab Practice | Human-Led Organizational Transformation"
+      content="The Baobab Practice | Human-Led Change for Growing Organisations"
     />
     <meta
       property="twitter:description"
-      content="Partner with The Baobab Practice for human-led, practice-based coaching. We guide leaders and teams through complex organizational change."
+      content="Helping growth-stage entrepreneurs and leadership teams build organisations that can carry their next stage of growth."
     />
     <meta
       property="twitter:image"
@@ -73,13 +73,14 @@
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "The Baobab Practice",
-        "description": "Human-led organizational transformation and coaching practice specializing in adaptive leadership development and change management.",
+        "description": "Human-led organisational development practice helping growth-stage entrepreneurs and leadership teams build organisations capable of sustainable growth.",
         "url": "https://thebaobabpractice.com",
         "telephone": "+254722289642",
-        "email": "hello@baobabpractice.com",
+        "email": "hello@thebaobabpractice.com",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "24808 00502",
+          "postOfficeBoxNumber": "24808",
+          "postalCode": "00502",
           "addressLocality": "Nairobi",
           "addressCountry": "KE"
         },
@@ -107,6 +108,14 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Static copy of the contact form so Netlify Forms detects it at deploy time.
+         Field names must match src/app/components/Contact.tsx. -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+      <input name="bot-field" />
+    </form>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

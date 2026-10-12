@@ -4,6 +4,14 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Button } from './ui/button';
 import logo from '../../assets/logo_full.png';
 
+const navItems = [
+  { label: 'About', target: 'about' },
+  { label: 'Approach', target: 'approach' },
+  { label: 'Services', target: 'services' },
+  { label: 'Philosophy', target: 'philosophy' },
+  { label: 'Founder', target: 'founder' },
+];
+
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -87,17 +95,17 @@ export function Header() {
           </motion.button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {['about', 'services', 'founder'].map((section) => (
+          <nav className="hidden lg:flex items-center gap-7">
+            {navItems.map(({ label, target }) => (
               <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className="nav-link font-medium capitalize hover:cursor-pointer"
+                key={target}
+                onClick={() => scrollToSection(target)}
+                className="nav-link font-medium hover:cursor-pointer"
                 style={{
                   color: scrolled ? 'var(--foreground)' : 'rgba(255,255,255,0.9)',
                 }}
               >
-                {section}
+                {label}
               </button>
             ))}
             <motion.div
@@ -116,7 +124,7 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="lg:hidden p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileMenuOpen}
@@ -136,21 +144,21 @@ export function Header() {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.nav
-              className="md:hidden py-4 border-t border-border overflow-hidden"
+              className="lg:hidden py-4 border-t border-border overflow-hidden"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
             >
               <div className="flex flex-col gap-4">
-                {['about', 'services', 'founder'].map((section) => (
+                {navItems.map(({ label, target }) => (
                   <button
-                    key={section}
-                    onClick={() => scrollToSection(section)}
-                    className="text-left font-medium py-2 capitalize hover:cursor-pointer"
+                    key={target}
+                    onClick={() => scrollToSection(target)}
+                    className="text-left font-medium py-2 hover:cursor-pointer"
                     style={{ color: 'var(--foreground)' }}
                   >
-                    {section}
+                    {label}
                   </button>
                 ))}
                 <Button

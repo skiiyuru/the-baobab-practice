@@ -65,25 +65,15 @@ export function Hero() {
           {/* h1 — fluid scale from base styles */}
           <motion.h1
             variants={fadeUp}
-            className="text-white"
+            className="text-white mb-8"
             style={{
-              maxWidth: '18ch',
+              maxWidth: '20ch',
+              fontSize: 'clamp(2.25rem, 4vw + 1rem, 4rem)',
               textShadow: '0 2px 20px oklch(0.15 0.04 55 / 0.3)',
             }}
           >
-            The Baobab Practice
+            The business is growing. Can the organisation grow with it?
           </motion.h1>
-
-          <motion.h2
-            variants={fadeUp}
-            className="text-white mb-12"
-            style={{
-              maxWidth: '18ch',
-              textShadow: '0 2px 20px oklch(0.15 0.04 55 / 0.3)',
-            }}
-          >
-            Human&thinsp;·&thinsp;Led Change
-          </motion.h2>
 
           {/* Body — main descriptive paragraph */}
           <motion.p
@@ -96,22 +86,22 @@ export function Hero() {
               maxWidth: '52ch',
             }}
           >
-            We help organizations move through transitions with care, clarity and confidence
-            by trusting people to shape the change they will carry forward.
+            The Baobab Practice helps growth-stage entrepreneurs and leadership teams build the
+            leadership, culture, capabilities, systems and ways of working needed to scale, without
+            losing what makes the organisation matter.
           </motion.p>
 
           {/* Closing statement — typographically distinct */}
           <motion.p
             variants={fadeUp}
-            className="text-white mb-5"
-           style={{
+            className="text-white/90 mb-10 font-serif italic"
+            style={{
               fontSize: 'clamp(1.1rem, 1.5vw + 0.5rem, 1.35rem)',
               lineHeight: 1.6,
-              fontWeight: 400,
               maxWidth: '52ch',
             }}
           >
-            Stronger teams. Healthier organizations. Change that lasts.
+            Measure what enables growth. See what constrains it. Track what needs to evolve.
           </motion.p>
 
           {/* CTA cluster */}
@@ -125,13 +115,13 @@ export function Hero() {
               <Button
                 size="lg"
                 onClick={scrollToContact}
-                className="bg-brand-clay text-white hover:bg-brand-clay/90 text-base px-10 py-6 shadow-lg"
+                className="bg-brand-clay text-white hover:bg-brand-clay/90 text-base px-8 sm:px-10 py-6 h-auto whitespace-normal text-center shadow-lg"
               >
-                Start a Conversation
+                Start a Growth Readiness Conversation
               </Button>
             </motion.div>
             <button
-              onClick={scrollToAbout}
+              onClick={() => document.getElementById('approach')?.scrollIntoView({ behavior: 'smooth' })}
               className="text-white/80 hover:text-white font-medium transition-colors flex items-center gap-1.5"
               style={{ transitionDuration: 'var(--duration-fast)' }}
             >

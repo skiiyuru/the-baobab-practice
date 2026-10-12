@@ -1,0 +1,302 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Our Philosophy (Copy)</title>
+<style>
+  /* Layout: a centered editorial column — narrative opener, the "living promise",
+     then the four guiding principles drawn from the baobab (philosophy, not process). */
+  :root{
+    --bg:#F3EEE6;
+    --surface:#FBF8F3;
+    --ink:#3C2C1E;
+    --body:#55473A;
+    --muted:#8A7A69;
+    --line:#E3D7C6;
+    --clay:#BC5F32;
+    --green:#5F7A5D;
+    --sand:#E7D9C8;
+    --gold:#C99A52;
+    --shadow:28 20 12;
+    --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#20180F;
+      --surface:#2A2015;
+      --ink:#F3E9DB;
+      --body:#D8CBBA;
+      --muted:#A2917E;
+      --line:#3E3121;
+      --clay:#DB8253;
+      --green:#92AC8F;
+      --sand:#3A2D1E;
+      --gold:#D7AE6A;
+      --shadow:0 0 0;
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#20180F;
+    --surface:#2A2015;
+    --ink:#F3E9DB;
+    --body:#D8CBBA;
+    --muted:#A2917E;
+    --line:#3E3121;
+    --clay:#DB8253;
+    --green:#92AC8F;
+    --sand:#3A2D1E;
+    --gold:#D7AE6A;
+    --shadow:0 0 0;
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg);
+    color:var(--body);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{
+    max-width:1060px;
+    margin:0 auto;
+    padding-inline:20px;
+    padding-block:clamp(48px,8vw,104px);
+  }
+
+  /* ---------- OPENER ---------- */
+  .opener{
+    max-width:52ch;margin:0 auto clamp(56px,9vw,96px);text-align:center;
+  }
+  .opener p{color:var(--body);font-size:clamp(1.02rem,2.3vw,1.18rem);line-height:1.66}
+  .opener .quote{
+    font-family:var(--serif);font-style:italic;font-weight:500;
+    color:var(--clay);
+    font-size:clamp(1.5rem,4vw,2.1rem);line-height:1.25;
+    margin:clamp(24px,4vw,34px) auto;max-width:18ch;text-wrap:balance;
+  }
+  .opener .ask{color:var(--ink);font-weight:500}
+  .opener-sep{width:1px;height:clamp(40px,7vw,64px);background:var(--line);margin:0 auto clamp(40px,7vw,64px)}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;text-align:center;margin-bottom:clamp(56px,9vw,104px)}
+  .baobab{
+    width:clamp(72px,14vw,110px);height:auto;margin:0 auto 26px;display:block;
+    color:var(--green);opacity:.9;
+  }
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--clay);font-weight:600;margin-bottom:20px;
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:500;
+    color:var(--ink);
+    font-size:clamp(2.6rem,7vw,4.4rem);
+    line-height:1.02;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .hero h1 em{font-style:italic;color:var(--clay)}
+  .promise{
+    max-width:40ch;margin:28px auto 0;
+    font-size:clamp(1.05rem,2.4vw,1.28rem);
+    color:var(--body);line-height:1.62;text-wrap:pretty;
+  }
+  .rule{width:64px;height:2px;background:var(--clay);border:0;margin:34px auto 0}
+
+  /* ---------- CYCLE INTRO ---------- */
+  .intro{text-align:center;max-width:56ch;margin:0 auto clamp(40px,6vw,64px)}
+  .intro .label{
+    display:inline-block;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--green);font-weight:600;margin-bottom:16px;
+  }
+  .intro .label sup{font-size:.6em;letter-spacing:0}
+  .intro h2{
+    font-family:var(--serif);font-weight:500;color:var(--ink);
+    font-size:clamp(1.9rem,4.4vw,2.7rem);line-height:1.1;margin:0 0 18px;text-wrap:balance;
+  }
+  .intro p{color:var(--body);font-size:1.02rem}
+  .intro p strong{color:var(--ink);font-weight:600}
+
+  /* ---------- STAGES ---------- */
+  .stages{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2.4vw,26px)}
+  @media (max-width:640px){.stages{grid-template-columns:1fr}}
+
+  .stage{
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:clamp(24px,3.2vw,36px);
+    overflow:hidden;
+    display:flex;flex-direction:column;
+    box-shadow:0 1px 2px rgb(var(--shadow) / .05), 0 10px 30px rgb(var(--shadow) / .05);
+  }
+  .stage::before{
+    content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--accent,var(--green));
+  }
+  .stage[data-s="1"]{--accent:var(--green)}
+  .stage[data-s="2"]{--accent:#6E8158}
+  .stage[data-s="3"]{--accent:var(--gold)}
+  .stage[data-s="4"]{--accent:var(--clay)}
+
+  .stage-top{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+  .num{
+    font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.2rem);line-height:.8;
+    color:var(--accent);font-weight:600;
+  }
+  .node{display:flex;flex-direction:column}
+  .node .code{
+    font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700;
+    color:var(--accent);
+  }
+  .node .part{
+    font-family:var(--serif);font-style:italic;font-size:1.08rem;color:var(--muted);
+  }
+
+  .block{padding-top:16px;border-top:1px solid var(--line);margin-top:16px}
+  .block:first-of-type{border-top:0;padding-top:0;margin-top:0}
+  .block .k{
+    font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+    color:var(--muted);margin-bottom:7px;
+  }
+  .block h3{
+    font-family:var(--serif);font-weight:600;color:var(--ink);
+    font-size:1.24rem;margin:0 0 6px;line-height:1.2;
+  }
+  .block p{margin:0;color:var(--body);font-size:.97rem;line-height:1.55}
+
+  .deliver{margin-top:auto}
+  .deliver .items{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .chip{
+    font-size:.82rem;color:var(--ink);background:var(--sand);
+    border-radius:999px;padding:6px 13px;line-height:1.3;
+  }
+
+  /* ---------- CLOSE ---------- */
+  .close{
+    text-align:center;margin-top:clamp(48px,7vw,80px);
+    max-width:46ch;margin-inline:auto;
+  }
+  .close p{
+    font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2.6vw,1.45rem);
+    color:var(--ink);line-height:1.4;text-wrap:balance;
+  }
+  .close .sig{
+    margin-top:18px;font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--clay);font-weight:600;
+  }
+  .close .sig span{color:var(--green)}
+</style>
+
+<div class="wrap">
+
+  <section class="opener">
+    <p>
+      In the heart of Africa grows a tree unlike any other. For over 2,000 years the
+      Baobab has outlived empires, storing water, shedding leaves, and blooming in time
+      with its pollinators.
+    </p>
+    <p class="quote">"It does not fight its environment. It dances with it."</p>
+    <p class="ask">
+      Most organizations brace against every drought, fire and storm, clinging to each
+      leaf until they exhaust themselves. What if yours grew like a Baobab instead?
+    </p>
+  </section>
+
+  <div class="opener-sep" aria-hidden="true"></div>
+
+  <header class="hero">
+    <svg class="baobab" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+      <path d="M60 112V70" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+      <path d="M60 74c-7-9-20-10-27-7M60 74c7-9 20-10 27-7M60 66c-4-10-14-15-22-15M60 66c4-10 14-15 22-15M60 60V40" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      <path d="M60 46c-16 0-30 7-30 17 0 7 7 11 16 12-4 2-7 5-7 9 0 7 9 12 21 12s21-5 21-12c0-4-3-7-7-9 9-1 16-5 16-12 0-10-14-17-30-17Z" fill="currentColor" opacity=".9"/>
+      <path d="M60 112c-3-6-9-9-15-9M60 112c3-6 9-9 15-9" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+    <p class="eyebrow">The Baobab Practice</p>
+    <h1>A <em>living</em> promise</h1>
+    <p class="promise">
+      The Baobab stands for wisdom that endures: deep roots, patient strength, and the
+      ability to withstand generations of change. Practice means growth through
+      disciplined, mindful action.
+    </p>
+    <hr class="rule"/>
+  </header>
+
+  <section class="intro">
+    <span class="label">The Fourfold Wisdom</span>
+    <h2>Four principles, drawn from the tree</h2>
+    <p>
+      Four beliefs about growth, each mapped to a part of the baobab. They are the thinking
+      beneath everything we do. <strong>Growth is cyclical, not linear</strong>, and it
+      lasts when it is built from the inside out.
+    </p>
+  </section>
+
+  <section class="stages" aria-label="The four guiding principles">
+
+    <article class="stage" data-s="1">
+      <div class="stage-top">
+        <span class="num">01</span>
+        <span class="node">
+          <span class="part">The Roots</span>
+        </span>
+      </div>
+      <div class="block">
+        <h3>Grow Deep and Wide</h3>
+        <p>Depth in values, wide in impact. Purposeful growth across your ecosystem.</p>
+      </div>
+    </article>
+
+    <article class="stage" data-s="2">
+      <div class="stage-top">
+        <span class="num">02</span>
+        <span class="node">
+          <span class="part">The Trunk</span>
+        </span>
+      </div>
+      <div class="block">
+        <h3>Store Your Water</h3>
+        <p>Build strategic resilience through intentional reserve, not bureaucratic bulk.</p>
+      </div>
+    </article>
+
+    <article class="stage" data-s="3">
+      <div class="stage-top">
+        <span class="num">03</span>
+        <span class="node">
+          <span class="part">The Branches</span>
+        </span>
+      </div>
+      <div class="block">
+        <h3>Reach Without Overreaching</h3>
+        <p>Spread wisely. Distinguish between essential identity and expendable tradition.</p>
+      </div>
+    </article>
+
+    <article class="stage" data-s="4">
+      <div class="stage-top">
+        <span class="num">04</span>
+        <span class="node">
+          <span class="part">The Canopy</span>
+        </span>
+      </div>
+      <div class="block">
+        <h3>Endure Through the Seasons</h3>
+        <p>Sustain what you have built, and keep adapting without losing who you are.</p>
+      </div>
+    </article>
+
+  </section>
+
+  <footer class="close">
+    <p>This is how we think. The Baobab Scaling Framework is how we put it to work.</p>
+    <p class="sig">The Baobab Practice · <span>human.led change</span></p>
+  </footer>
+
+</div>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap">
+
+</body></html>
